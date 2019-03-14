@@ -10,7 +10,7 @@ jobs:
       - heroku/deploy-via-git:
           only-branch: master
   run_tests:
-    working_directory: ~/hersite
+    working_directory: ~/talenthub
     docker:
       - image: circleci/python:3.7.2
         environment:

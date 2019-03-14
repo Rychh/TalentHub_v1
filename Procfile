@@ -1,1 +1,1 @@
-web: gunicorn hersite.wsgi --log-file -
+web: gunicorn talenthub.wsgi --log-file -
