@@ -1,12 +1,11 @@
 from django.db import models
-from django.contrib.postgres.fields import ArrayField
 from django.contrib.auth.models import User
 
 FIRST_NAME_LEN = 20
 LAST_NAME_LEN = 20
 CATEGORY_NAME_LEN = 30
 OFFER_DESC_LEN = 1000
-TAG_LEN = 10
+TAGS_LEN = 1000
 MEETING_STATUS_LEN = 30
 
 
@@ -30,9 +29,8 @@ class Category(models.Model):
 
 class Offer(models.Model):
     description = models.CharField(max_length=OFFER_DESC_LEN)
-    tags = ArrayField(models.CharField(max_length=TAG_LEN))
-    avaliability = ArrayField(
-        ArrayField(models.DateTimeField("when avaliable"), size=2))
+    tags = models.CharField(max_length=TAGS_LEN)
+    avaliability = models.TextField()
     price = models.PositiveSmallIntegerField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     user_profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
