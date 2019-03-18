@@ -1,4 +1,5 @@
 talenthub/settings/local.py
+talenthub/migrations
 db.sqkite3
 test-results
 
