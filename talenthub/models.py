@@ -5,7 +5,7 @@ FIRST_NAME_LEN = 20
 LAST_NAME_LEN = 20
 CATEGORY_NAME_LEN = 30
 OFFER_DESC_LEN = 1000
-TAGS_LEN = 1000
+TAG_LEN = 1000
 MEETING_STATUS_LEN = 30
 
 
@@ -29,10 +29,14 @@ class Category(models.Model):
 
 class Offer(models.Model):
     description = models.CharField(max_length=OFFER_DESC_LEN)
-    tags = models.CharField(max_length=TAGS_LEN)
     price = models.PositiveSmallIntegerField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     user_profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+
+
+class Tag(models.Model):
+    name = models.CharField(max_length=TAG_LEN)
+    offer = models.ForeignKey(Offer, null=True, on_delete=models.SET_NULL)
 
 
 class Period(models.Model):

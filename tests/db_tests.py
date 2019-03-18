@@ -1,5 +1,4 @@
-from talenthub.models import (Category, User, Profile, Period,
-                              Offer, MeetingStatus, Meeting)
+from talenthub.models import *
 from datetime import timedelta
 from django.test import TestCase
 from django.utils import timezone
@@ -17,9 +16,14 @@ class DBTest(TestCase):
         self.c.save()
 
         self.o = Offer(description="this is a dumb offer",
-                       tags=['tag1', 'tag2', 'tag3'],
                        price=100, category=self.c, user_profile=self.p)
         self.o.save()
+
+        self.tags = []
+        for i in range(10):
+            t = Tag(name="tag" + str(i), offer=self.o)
+            t.save()
+            self.tags.append(t)
 
         self.n1 = timezone.now()
         self.n2 = self.n1 - timedelta(days=1)
@@ -37,9 +41,10 @@ class DBTest(TestCase):
         self.assertEqual(x, 1)
 
     def testTags(self):
-        tags = self.o.tags
-        self.assertEqual(len(tags), 3)
-        self.assertTrue(tags[0] == 'tag1')
+        tags = self.o.tag_set
+        self.assertEqual(tags.count(), 10)
+        t0 = tags.all().order_by('name')[0]
+        self.assertTrue(t0.name == 'tag0')
 
     def testCategories(self):
         self.assertTrue(self.o.category in
