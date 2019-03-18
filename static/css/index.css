@@ -4,7 +4,7 @@
      border: 3px solid #282c34;
    }
    .container-fluid {
-     height: 100vh;
+     min-height: 100vh;
      background-color: #282c34;
      display: flex;
      justify-content: center;
