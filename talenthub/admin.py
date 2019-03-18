@@ -4,13 +4,8 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from talenthub.models import Profile, Offer, Category, Meeting
 
 
-# Define a new User admin
-class CategoryAdmin(admin.ModelAdmin):
-    fieldsets = [
-        (None, {'fields': ['name']}),
-    ]
 
 
 admin.site.register(Offer)
-admin.site.register(Category, CategoryAdmin)
+admin.site.register(Category)
 admin.site.register(Meeting)
