@@ -15,8 +15,13 @@ class DBTest(TestCase):
         self.c = Category(name="Matma")
         self.c.save()
 
+
+        self.n1 = timezone.now()
+        self.n2 = self.n1 - timedelta(days=1)
+
         self.o = Offer(description="this is a dumb offer",
-                       price=100, category=self.c, user_profile=self.p)
+                       price=100, category=self.c, user_profile=self.p,
+                       avaliability=[[self.n1,self.n2]])
         self.o.save()
 
         self.tags = []
@@ -25,20 +30,21 @@ class DBTest(TestCase):
             t.save()
             self.tags.append(t)
 
-        self.n1 = timezone.now()
-        self.n2 = self.n1 - timedelta(days=1)
-
-        self.per = Period(offer=self.o, date_from=self.n2, date_to=self.n1)
-        self.per.save()
+        # self.per = Period(offer=self.o, date_from=self.n2, date_to=self.n1)
+        # self.per.save()
 
         self.ms = MeetingStatus(name='pending')
         self.ms.save()
         self.m = Meeting(date=self.n1, agreed_price=90, status=self.ms)
         self.m.save()
 
-    def testPeriodSet(self):
-        x = self.o.period_set.count()
-        self.assertEqual(x, 1)
+    def testPeriod(self):
+        # x = self.o.period_set.count()
+        # self.assertEqual(x, 1)
+        n1 = self.o.avaliability[0][0]
+        n2 = self.o.avaliability[0][1]
+        self.assertTrue(n1 - timedelta(days=1) == n2)
+        self.assertTrue(self.n1 is n1)
 
     def testTags(self):
         tags = self.o.tag_set

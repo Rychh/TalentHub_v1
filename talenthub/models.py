@@ -32,17 +32,12 @@ class Offer(models.Model):
     price = models.PositiveSmallIntegerField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     user_profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    avaliability = models.CharField(max_length=200, null=True)
 
 
 class Tag(models.Model):
     name = models.CharField(max_length=TAG_LEN)
     offer = models.ForeignKey(Offer, null=True, on_delete=models.SET_NULL)
-
-
-class Period(models.Model):
-    offer = models.ForeignKey(Offer, on_delete=models.CASCADE)
-    date_from = models.DateTimeField()
-    date_to = models.DateTimeField()
 
 
 class MeetingStatus(models.Model):
