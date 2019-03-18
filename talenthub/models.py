@@ -30,10 +30,15 @@ class Category(models.Model):
 class Offer(models.Model):
     description = models.CharField(max_length=OFFER_DESC_LEN)
     tags = models.CharField(max_length=TAGS_LEN)
-    avaliability = models.TextField()
     price = models.PositiveSmallIntegerField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     user_profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+
+
+class Period(models.Model):
+    offer = models.ForeignKey(Offer, on_delete=models.CASCADE)
+    date_from = models.DateTimeField()
+    date_to = models.DateTimeField()
 
 
 class MeetingStatus(models.Model):
