@@ -16,6 +16,9 @@ class Profile(models.Model):
     age = models.PositiveSmallIntegerField()
     balance = models.PositiveIntegerField()
 
+    def __str__(self):
+        return self.user.username
+
 
 class Category(models.Model):
     name = models.CharField(max_length=CATEGORY_NAME_LEN)
@@ -33,6 +36,9 @@ class Offer(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     user_profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     avaliability = models.CharField(max_length=200, null=True)
+
+    def __str__(self):
+        return self.category.name + " by " + self.user_profile.user.username
 
 
 class Tag(models.Model):

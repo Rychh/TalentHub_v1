@@ -1,0 +1,45 @@
+<!-- templates/search.html -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <title>Search</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div>
+            <h1 class="card-header bg-light mb-3 text-center">Welcome to TalentHub</h1>
+            <form class="form-inline md-form mr-auto mb-4" id="search">
+                <input class="form-control mr-sm-3" type="text" placeholder="Search" aria-label="Search">
+                <button class="btn aqua-gradient btn-rounded btn-sm my-0" type="submit">Search</button>
+            </form>
+            <div class="card-body">
+                {% if offers %}
+                    {% for o in offers %}
+                        <div class="card mb-3">
+                            <div class="card-header bg-light">
+                                <h4>{{ o.category }} - {{ o.price }} 
+                            Talents</h4>
+                            </div>
+                            <div class="card-body bg-light">
+                                <p>{{ o.description }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="card mb-3">
+                        <p>No offers available.</p>
+                    </div>
+                {% endif%}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

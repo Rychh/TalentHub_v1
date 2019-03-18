@@ -9,3 +9,4 @@ from talenthub.models import Profile, Offer, Category, Meeting
 admin.site.register(Offer)
 admin.site.register(Category)
 admin.site.register(Meeting)
+admin.site.register(Profile)
