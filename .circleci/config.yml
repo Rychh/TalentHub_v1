@@ -9,8 +9,8 @@ jobs:
       - heroku/install
       - run: 
           command: |
-            heroku run python manage.py makemigrations talenthub
-            heroku run python manage.py migrate
+            heroku run -a talenthub123 python manage.py makemigrations talenthub
+            heroku run -a talenthub123 python manage.py migrate
       - heroku/deploy-via-git
   run_tests:
     working_directory: ~/talenthub
