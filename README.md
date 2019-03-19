@@ -14,4 +14,6 @@ chmod +x setup.sh
 ./setup.sh
 ```
 - run heroku localy 
-``` heroku local web ```
+``` 
+heroku local web 
+```
