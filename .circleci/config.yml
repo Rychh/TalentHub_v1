@@ -42,9 +42,9 @@ workflows:
     jobs:
       - run_tests
       - deploy:
-          filters:  # using regex filters requires the entire branch to match
+          filters: 
             branches:
-              only:  # only branches matching the below regex filters will run
+              only:
                 - master
           requires:
-            - run_tests'
+            - run_tests
