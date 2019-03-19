@@ -4,9 +4,6 @@ orbs:
 jobs:
   deploy:
     executor: heroku/default
-    branches:
-      only: 
-        - master
     steps:
       - checkout
       - heroku/install
@@ -45,5 +42,9 @@ workflows:
     jobs:
       - run_tests
       - deploy:
+          filters:  # using regex filters requires the entire branch to match
+            branches:
+              only:  # only branches matching the below regex filters will run
+                - master
           requires:
             - run_tests'
