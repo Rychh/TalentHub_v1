@@ -4,6 +4,9 @@ orbs:
 jobs:
   deploy:
     executor: heroku/default
+    branches:
+      only: 
+        - master
     steps:
       - checkout
       - heroku/install
@@ -42,6 +45,5 @@ workflows:
     jobs:
       - run_tests
       - deploy:
-          only-branch: master
           requires:
             - run_tests'
