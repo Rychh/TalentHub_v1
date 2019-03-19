@@ -2,6 +2,7 @@ import random
 from talenthub.models import *
 from datetime import timedelta
 from django.utils import timezone
+from .desc_list import *
 
 categories = ["Maths",
               "Algebra",
