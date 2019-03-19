@@ -13,6 +13,10 @@ pip install -r requirements.txt
 chmod +x setup.sh
 ./setup.sh
 ```
+- export two secret key environment variables 
+they are located in docs, and contain secret keys hence should not be part
+of public repository. It is propably best to add them to .bashrc
+
 - run heroku localy 
 ``` 
 heroku local web 
