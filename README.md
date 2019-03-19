@@ -2,5 +2,5 @@
 
 How to install TalentHub locally:
 - git clone
-- pip install -r requirements.txr
+- pip install -r requirements.txt
 - ./start
