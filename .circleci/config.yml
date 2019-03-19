@@ -9,8 +9,8 @@ jobs:
       - heroku/install
       - run: 
           command: |
-          heroku run python manage.py makemigrations talenthub
-          heroku run python manage.py migrate
+            heroku run python manage.py makemigrations talenthub
+            heroku run python manage.py migrate
       - heroku/deploy-via-git:
           only-branch: master
   run_tests:
