@@ -11,7 +11,7 @@ jobs:
           command: |
             heroku run python manage.py makemigrations talenthub
             heroku run python manage.py migrate
-      - heroku/deploy-via-git:
+      - heroku/deploy-via-git
   run_tests:
     working_directory: ~/talenthub
     docker:
