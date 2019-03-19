@@ -2,4 +2,5 @@
 
 python manage.py makemigrations talenthub
 python manage.py migrate
-python manage.py runserver
+echo "import examples" | python manage.py shell 
+# python manage.py runserver
