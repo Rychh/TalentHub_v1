@@ -12,7 +12,6 @@ jobs:
             heroku run python manage.py makemigrations talenthub
             heroku run python manage.py migrate
       - heroku/deploy-via-git:
-          only-branch: master
   run_tests:
     working_directory: ~/talenthub
     docker:
@@ -43,5 +42,6 @@ workflows:
     jobs:
       - run_tests
       - deploy:
+          only-branch: master
           requires:
-            - run_tests
+            - run_tests'
