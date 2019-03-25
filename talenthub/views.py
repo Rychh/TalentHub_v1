@@ -38,7 +38,7 @@ def search(request):
             offers = offers.order_by('-user_profile')
         
         if sort == "Tag: from the most matching":
-            offers = offers.annotate(count=Count('pk')).distinct().order_by('count')
+            offers = offers.annotate(count=Count('pk')).distinct().order_by('-count')
 
     context = { 'offers': offers, 'category':category }
     return render(request, 'search.html', context)

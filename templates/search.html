@@ -27,7 +27,7 @@
                     {% endfor %}
                 </select>
 
-                <input class="form-control mr-sm-3" type="text" name="tag" placeholder="Tags separated by a space" aria-label="Search" value="{{request.GET.t}}">
+                <input class="form-control mr-sm-3" type="text" name="tag" placeholder="Tags separated by a space" aria-label="Search" value="{{request.GET.tag}}">
                 
                 <select name="sort">
                         {% if request.GET.sort %}
@@ -53,6 +53,14 @@
                             </div>
                             <div class="card-body bg-light">
                                 <p>{{ o.description }}</p>
+                                <p>
+                                    Tags: 
+                                    {% for tag in o.tag_set.all %}
+                                        {{ tag.name }}
+                                    {% empty %}
+                                        None!
+                                    {% endfor %}    
+                                </p>
                             </div>
                         </div>
                     {% endfor %}
