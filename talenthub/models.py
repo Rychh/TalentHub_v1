@@ -43,7 +43,11 @@ class Offer(models.Model):
 
 class Tag(models.Model):
     name = models.CharField(max_length=TAG_LEN)
-    offer = models.ForeignKey(Offer, null=True, on_delete=models.SET_NULL)
+    # offer = models.ManyToManyField(Offer, null=True, on_delete=models.SET_NULL)
+    offer = models.ManyToManyField(Offer)
+
+    def __str__(self):
+        return self.name
 
 
 class MeetingStatus(models.Model):
