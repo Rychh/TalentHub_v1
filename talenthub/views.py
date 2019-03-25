@@ -14,15 +14,15 @@ def search(request):
     
     category = Category.objects.all()
     cname = request.GET.get("c")
-    tname = request.GET.get("t")
-    # cat = Category.objects.get(name__icontains = 'Maths')
-    # offers = Offer.objects.filter(category = cat)
+    tnames = request.GET.get("t")
+    sort = request.GET.get("sort")
+
     if cname:
-        # cat = Category.objects.get(name__icontains = cname) # czy oaby na pewno iconstains
         offers = Offer.objects.filter(category__name = cname)
-    if tname:
-        tnames = tname.split()
-        # tags = Tag.objects.filter(name__iconstains=tagsname) # czy oaby na pewno iconstains
+
+    if tnames:
+        tnames = tnames.split()
         offers = offers.filter(tag__name__in = tnames).distinct()
+                
     context = { 'offers': offers, 'category':category }
     return render(request, 'search.html', context)

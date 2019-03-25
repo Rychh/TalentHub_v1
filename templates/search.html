@@ -18,13 +18,25 @@
             <h1 class="card-header bg-light mb-3 text-center">Welcome to TalentHub</h1>
             <form class="form-inline md-form mr-auto mb-4" id="search" method="GET"  action="">
                 <select name="c">
+                    {% if request.GET.c %}
+                        <option value="{{request.GET.c}}">{{request.GET.c}}</option>
+                    {% endif%}
                     <option value="">---------</option>
                     {% for c in category %}
                         <option value="{{ c.name }}">{{ c.name }}</option>
                     {% endfor %}
                 </select>
 
-                <input class="form-control mr-sm-3" type="text" name="t" placeholder="Search" aria-label="Search">
+                <input class="form-control mr-sm-3" type="text" name="t" placeholder="Tags separated by a space" aria-label="Search" value="{{request.GET.t}}">
+                <select name="sort">
+                        <!-- {% if request.GET.sort %}
+                        <option value="{{request.GET.sort}}">{{request.GET.sort}}</option>
+                        {% endif%} -->
+                        <option value="Order by">Order by</option>
+                        <option value="Price">Price</option>
+                        <option value="User Name">User Name</option>
+                </select>
+                
                 <button class="btn aqua-gradient btn-rounded btn-sm my-0" type="submit" value='Search'>Search</button>
             </form> 
             <div class="card-body">
