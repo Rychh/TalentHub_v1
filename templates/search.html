@@ -29,12 +29,15 @@
 
                 <input class="form-control mr-sm-3" type="text" name="t" placeholder="Tags separated by a space" aria-label="Search" value="{{request.GET.t}}">
                 <select name="sort">
-                        <!-- {% if request.GET.sort %}
+                        {% if request.GET.sort %}
                         <option value="{{request.GET.sort}}">{{request.GET.sort}}</option>
-                        {% endif%} -->
-                        <option value="Order by">Order by</option>
-                        <option value="Price">Price</option>
-                        <option value="User Name">User Name</option>
+                        {% endif%}
+                        <option value="">Order by</option>
+                        <option value="Tag: from the most matching">Tag: from the most matching</option>
+                        <option value="Price: from the highest">Price: from the highest</option>
+                        <option value="Price: from the lowest">Price: from the lowest</option>
+                        <option value="User Name: A->Z">User Name: A->Z</option>
+                        <option value="User Name: Z->A">User Name: Z->A</option>
                 </select>
                 
                 <button class="btn aqua-gradient btn-rounded btn-sm my-0" type="submit" value='Search'>Search</button>
