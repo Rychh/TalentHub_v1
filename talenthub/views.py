@@ -14,8 +14,8 @@ def search(request):
     offers = Offer.objects.all()
     
     category = Category.objects.all()
-    cname = request.GET.get("c")
-    tnames = request.GET.get("t")
+    cname = request.GET.get("cat")
+    tnames = request.GET.get("tag")
     sort = request.GET.get("sort")
     if cname:
         offers = Offer.objects.filter(category__name = cname)
@@ -34,7 +34,7 @@ def search(request):
         if sort == "User Name: A->Z":
             offers = offers.order_by('user_profile')
 
-        if sort == "User Name: A->Z":
+        if sort == "User Name: Z->A":
             offers = offers.order_by('-user_profile')
         
         if sort == "Tag: from the most matching":
