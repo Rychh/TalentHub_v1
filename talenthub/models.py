@@ -30,25 +30,23 @@ class Category(models.Model):
         verbose_name_plural = "Categories"
 
 
+class Tag(models.Model):
+    name = models.CharField(max_length=TAG_LEN)
+
+    def __str__(self):
+        return self.name
+
+
 class Offer(models.Model):
     description = models.CharField(max_length=OFFER_DESC_LEN)
     price = models.PositiveSmallIntegerField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     user_profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     avaliability = models.CharField(max_length=200, null=True)
+    tag = models.ManyToManyField(Tag)
 
     def __str__(self):
         return self.category.name + " by " + self.user_profile.user.username
-
-
-class Tag(models.Model):
-    name = models.CharField(max_length=TAG_LEN)
-    # offer = models.ManyToManyField(Offer, null=True, on_delete=models.SET_NULL)
-    offer = models.ManyToManyField(Offer)
-
-    def __str__(self):
-        return self.name
-
 
 class MeetingStatus(models.Model):
     name = models.CharField(max_length=MEETING_STATUS_LEN)
