@@ -55,7 +55,7 @@
                                 <p>{{ o.description }}</p>
                                 <p>
                                     Tags: 
-                                    {% for tag in o.tag_set.all %}
+                                    {% for tag in o.tag.all %}
                                         {{ tag.name }}
                                     {% empty %}
                                         None!
