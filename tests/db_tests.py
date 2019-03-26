@@ -26,8 +26,9 @@ class DBTest(TestCase):
 
         self.tags = []
         for i in range(10):
-            t = Tag(name="tag" + str(i), offer=self.o)
+            t = Tag(name="tag" + str(i))
             t.save()
+            t.offer.add(self.o)
             self.tags.append(t)
 
         # self.per = Period(offer=self.o, date_from=self.n2, date_to=self.n1)
