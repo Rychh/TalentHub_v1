@@ -28,7 +28,7 @@ class DBTest(TestCase):
         for i in range(10):
             t = Tag(name="tag" + str(i))
             t.save()
-            t.offer.add(self.o)
+            t.offer_set.add(self.o)
             self.tags.append(t)
 
         # self.per = Period(offer=self.o, date_from=self.n2, date_to=self.n1)
@@ -48,7 +48,7 @@ class DBTest(TestCase):
         self.assertTrue(self.n1 is n1)
 
     def testTags(self):
-        tags = self.o.tag_set
+        tags = self.o.tag.all()
         self.assertEqual(tags.count(), 10)
         t0 = tags.all().order_by('name')[0]
         self.assertTrue(t0.name == 'tag0')
