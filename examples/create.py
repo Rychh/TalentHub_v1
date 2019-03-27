@@ -21,6 +21,13 @@ categories = ["Maths",
               "Art",
               "Music"]
 
+tags = []
+for i in range(100):
+    t = Tag(name="tag" + str(i))
+    t.save()
+    tags.append(t)
+
+
 if User.objects.count() == 0:
     u = User.objects.create(username='user123', password='password')
 else:
@@ -41,8 +48,11 @@ for i in range(100):
     n1 = timezone.now() - timedelta(minutes=random.randint(1, 3000))
     n2 = timezone.now() - timedelta(minutes=random.randint(3000, 9000))
 
-    Offer.objects.create(description=desc[i % len(desc)],
-                         price=random.randint(50, 150),
-                         category=cat[i % len(cat)],
-                         user_profile=p,
-                         avaliability=[[n1, n2]])
+    o = Offer.objects.create(description=desc[i % len(desc)],
+                             price=random.randint(50, 150),
+                             category=cat[i % len(cat)],
+                             user_profile=p,
+                             avaliability=[[n1, n2]])
+    o.tag.add(tags[i * 13 % 100])
+    o.tag.add(tags[i * 19 % 100])
+    o.tag.add(tags[i * i % 100])
