@@ -1,29 +1,10 @@
-/_ index.css _/
+body
+{
+    background-color: #282c34;
+    color: white;   
+}
 
-   img {
-     border: 3px solid #282c34;
-   }
-   .container-fluid {
-     min-height: 100vh;
-     background-color: #282c34;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-   }
-   .container-fluid > div {
-     width: 85%;
-     min-width: 300px;
-     max-width: 800px;
-   }
-   .card {
-     width: 100%;
-   }
-   .social-container {
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-   }
-   .btn a, .btn a:hover {
-     color: white;
-     text-decoration: none ;
-   }
+#logo
+{
+    text-align: center;
+}

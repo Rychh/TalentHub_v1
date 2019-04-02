@@ -1,21 +1,11 @@
 <!-- templates/search.html -->
 
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous" />
-    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
-    <title>Search</title>
-</head>
-<body>
-    <div class="container-fluid">
+
+{% extends 'base.html' %}
+{% block title %} Search {% endblock %}
+{% block content %}
+    <div class="card bg-dark">
         <div>
-            <h1 class="card-header bg-light mb-3 text-center">Welcome to TalentHub</h1>
             <form class="form-inline md-form mr-auto mb-4" id="search" method="GET"  action="">
                 <select name="cat">
                     {% if request.GET.cat %}
@@ -47,11 +37,10 @@
                 {% if offers %}
                     {% for o in offers %}
                         <div class="card mb-3">
-                            <div class="card-header bg-light">
-                                <h4>{{ o.category }} - {{ o.price }} 
-                            Talents</h4>
+                            <div class="card-header bg-dark">
+                                <h4>{{ o.category }} - {{ o.price }} Talents by <a href="{% url 'profile' username=o.user_profile %}">{{ o.user_profile }}</a></h4>
                             </div>
-                            <div class="card-body bg-light">
+                            <div class="card-body bg-dark">
                                 <p>{{ o.description }}</p>
                                 <p>
                                     Tags: 
@@ -72,5 +61,5 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+{% endblock %}
+        

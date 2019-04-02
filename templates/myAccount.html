@@ -1,0 +1,23 @@
+
+{% extends 'base.html' %}
+{% block title %} Profile {% endblock %}
+{% block content %}        
+    <div class="row">
+         <div class="col">
+            <nav class="btn-group-vertical" role="group">
+                <span><a href="{% url 'myProfile' %}">My profile</a></span>  
+                <span><a href="{% url 'myOffers' %}">My offers</a></span>
+                <span>My arguments</span>    
+                <span>My opinions</span>    
+                <span>My lessons</span>    
+                <span>Settings</span>    
+            </nav>
+        </div>
+         <div class="col-10">
+            <div class="card bg-dark mb-3">
+                {% block myProfileContent %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}  
