@@ -25,4 +25,8 @@ urlpatterns = [
     path('social-auth/', include('social_django.urls', namespace="social")),
     path("", views.home, name="home"),
     path("search/", views.search, name="search"),
+    path("profile/<username>/", views.profile, name="profile"),
+    path("myProfile/", views.myProfile, name="myProfile"),
+    path("myOffers/", views.myOffers, name="myOffers"),
+    path("addOffer/", views.addOffer, name="addOffer"),
 ]

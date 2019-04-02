@@ -1,0 +1,31 @@
+{% extends 'myAccount.html' %}
+{% block myProfileContent %}
+    <div class="card-header">
+        <p><a href="{% url 'addOffer' %}">Click here to add Offer!</a></p>
+    </div>
+    <div class="card-body">
+        {% if offers %}
+            {% for o in offers %}
+                <div class="card mb-3">
+                    <div class="card-header bg-dark">
+                        <h4>{{ o.category }} - {{ o.price }} 
+                    Talents</h4>
+                    </div>
+                    <div class="card-body bg-dark">
+                        <p>{{ o.description }}</p>
+                        <p>
+                            Tags: 
+                            {% for tag in o.tag.all %}
+                                {{ tag.name }}
+                            {% empty %}
+                                None!
+                            {% endfor %}    
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No offers available</p>
+        {% endif%}
+    </div>
+{% endblock %}
