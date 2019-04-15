@@ -34,9 +34,17 @@ class DBTest(TestCase):
         # self.per = Period(offer=self.o, date_from=self.n2, date_to=self.n1)
         # self.per.save()
 
+        self.u2 = User(username='dummy2', password='password')
+        self.u2.save()
+        self.p2 = Profile(user=self.u2, first_name='dumb_name2',
+                         last_name='dumb_last_name2', age=12, balance=140)
+        self.p2.save()
+
+
         self.ms = MeetingStatus(name='pending')
         self.ms.save()
-        self.m = Meeting(date=self.n1, agreed_price=90, status=self.ms)
+
+        self.m = Meeting(date=self.n1, agreed_price=90, status=self.ms, student=self.p, teacher=self.p2, offer=self.o)
         self.m.save()
 
     def testPeriod(self):
