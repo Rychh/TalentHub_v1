@@ -54,5 +54,8 @@ class MeetingStatus(models.Model):
 
 class Meeting(models.Model):
     date = models.DateTimeField("data of the meeting")
+    student = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    teacher = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    offer = models.ForeignKey(Offer, on_delete=models.CASCADE)
     agreed_price = models.PositiveSmallIntegerField()
     status = models.ForeignKey(MeetingStatus, on_delete=models.CASCADE)
