@@ -80,6 +80,6 @@ for p in Profile.objects.all():
         opc = other_profiles.count()
         op = other_profiles[random.randint(0, opc - 1)]
         m = Meeting(date=n1, agreed_price=10,
-                    status=mss[i % 2], student=p,
-                    teacher=op, offer=ofers[i])
+                    status=mss[i % 2], student=op,
+                    teacher=p, offer=ofers[i])
         m.save()
