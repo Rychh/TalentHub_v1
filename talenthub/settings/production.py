@@ -185,3 +185,11 @@ NOSE_ARGS = [
     '--with-xunit',  # enable XUnit plugin
     '--xunit-file=test-results/results.xml',  # the XUnit report file
 ]
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'talenthubnajlepszy@gmail.com'
+EMAIL_HOST_PASSWORD = 'talentHubNajlepszy4829'
