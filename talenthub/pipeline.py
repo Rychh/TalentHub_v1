@@ -13,10 +13,15 @@ def check_profile(*args, **kwargs):
     # logger.info(kwargs)
     profile, is_new = Profile.objects.get_or_create(user=kwargs.get('user'), 
                         first_name=details['first_name'],
-                        last_name=details['last_name'], age=22, balance=100)
+                        last_name=details['last_name'], age=22)
+    
     if details['email'] :
         user.email = details['email']
         user.save()
+        
+    if is_new:
+        profile.balance = 200
+        profile.save()
     return {
         'profile': profile
     }
