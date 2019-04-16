@@ -106,6 +106,7 @@ def addOffer(request):
             post.author = request.user
             post.user_profile = Profile.objects.filter(user=get_user(request)).first()
             post.save()
+            form.save_m2m()
     else:
         form = OfferForm()
     return render(request, 'addOffer.html', {'form': form})
