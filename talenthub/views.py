@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.db.models import Count
-from .models import Offer, Category, Profile
+from .models import *
 from django.views.decorators.http import require_GET
 from django.contrib.auth import get_user
 from django import forms
@@ -74,6 +74,12 @@ def myOffers(request):
     context = {'offers': offers}
     return render(request, 'myOffers.html', context)
 
+@login_required
+def myLessons(request):
+    currUser = get_user(request)
+    meetings = Meeting.objects.filter(student__user=currUser).order_by('status')
+    context = {'meetings': meetings}
+    return render(request, 'myLessons.html', context)
 
 @login_required
 def addOffer(request):

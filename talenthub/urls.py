@@ -28,5 +28,6 @@ urlpatterns = [
     path("profile/<username>/", views.profile, name="profile"),
     path("myProfile/", views.myProfile, name="myProfile"),
     path("myOffers/", views.myOffers, name="myOffers"),
+    path("myLessons/", views.myLessons, name="myLessons"),
     path("addOffer/", views.addOffer, name="addOffer"),
 ]
