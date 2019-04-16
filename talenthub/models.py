@@ -14,7 +14,7 @@ class Profile(models.Model):
     first_name = models.CharField(max_length=FIRST_NAME_LEN)
     last_name = models.CharField(max_length=LAST_NAME_LEN)
     age = models.PositiveSmallIntegerField()
-    balance = models.PositiveIntegerField()
+    balance = models.PositiveIntegerField(default = 0)
 
     def __str__(self):
         return self.user.username
