@@ -48,8 +48,12 @@ class Offer(models.Model):
     def __str__(self):
         return self.category.name + " by " + self.user_profile.user.username
 
+
 class MeetingStatus(models.Model):
     name = models.CharField(max_length=MEETING_STATUS_LEN)
+
+    def __str__(self):
+        return self.name
 
 
 class Meeting(models.Model):
@@ -59,3 +63,6 @@ class Meeting(models.Model):
     offer = models.ForeignKey(Offer, on_delete=models.CASCADE)
     agreed_price = models.PositiveSmallIntegerField()
     status = models.ForeignKey(MeetingStatus, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.teacher.user.username + " teaches " + self.student.user.username + " " + self.offer.category.name
