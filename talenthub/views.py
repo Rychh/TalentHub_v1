@@ -6,6 +6,7 @@ from django.views.decorators.http import require_GET
 from django.contrib.auth import get_user
 from django import forms
 import sys
+from django.core.mail import EmailMessage
 
 
 def login(request):
@@ -81,8 +82,14 @@ def myMeetings(request):
     if request.method == "POST":
         accept = MeetingStatus.objects.filter(name="agreed").first()
         Meeting.objects.filter(pk=request.POST.get("acceptMeeting", "")).update(status=accept)
+        meeting = Meeting.objects.filter(pk=request.POST.get("acceptMeeting", "")).first()
 
-
+        if meeting.student.user.email != '':
+            title = 'Your meeting has been accepted'
+            body = 'Your meeting with ' + meeting.teacher.user.username + \
+            ' on ' + str(meeting.date) + ' has been accepted. Make sure to be on time!'
+            email = EmailMessage(title, body, to=[meeting.student.user.email])
+            email.send()
 
     currUser = get_user(request)
     meetings = Meeting.objects.filter(teacher__user=currUser).order_by('status')
