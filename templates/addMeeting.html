@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Add meeting{% endblock %}
+{% block content %}
+{% if offer.user_profile.user.id != user.id and user.profile.balance >= offer.price %}
+<form action="{% url 'addMeeting' offer.id %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>
+{% else %}
+    Nie masz dostępu do tej strony.
+{% endif %}
+{% endblock %}

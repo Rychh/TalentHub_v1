@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.db.models import Count
 from .models import *
@@ -7,6 +7,7 @@ from django.contrib.auth import get_user
 from django import forms
 import sys
 from django.core.mail import EmailMessage
+from django.http import HttpResponse
 
 
 def login(request):
@@ -109,6 +110,43 @@ def addOffer(request):
         form = OfferForm()
     return render(request, 'addOffer.html', {'form': form})
 
+@login_required
+def addMeeting(request, offer_id):
+    offer = get_object_or_404(Offer, id=offer_id)
+    if request.method == 'GET':
+        form = MeetingForm()
+        return render(request, 'addMeeting.html', {'offer': offer, 'form': form})
+    elif request.method == 'POST':
+        if request.user.id == offer.user_profile.user.id or request.user.profile.balance < offer.price:
+            return HttpResponse("Nice try")
+
+        form = MeetingForm(request.POST)
+
+        if form.is_valid():
+            meeting_status, created = MeetingStatus.objects.get_or_create(name = 'pending')
+            meeting = Meeting(
+                date = form.cleaned_data['date'],
+                student = request.user.profile,
+                teacher = offer.user_profile,
+                offer = offer,
+                agreed_price = offer.price,
+                status = meeting_status,
+            )
+            request.user.profile.balance -= offer.price
+            request.user.profile.save()
+            meeting.save()
+        
+        return redirect('myMeetings')
+        
+        
+class MeetingForm(forms.ModelForm):
+    date = forms.fields.SplitDateTimeField(widget=forms.widgets.SplitDateTimeWidget(
+        date_attrs = {'type': 'date'},
+        time_attrs = {'type': 'time'}
+    ))
+    class Meta:
+        model = Meeting
+        fields = ["date"]
 
 class OfferForm(forms.ModelForm):
 
