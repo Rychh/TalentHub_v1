@@ -30,4 +30,5 @@ urlpatterns = [
     path("myOffers/", views.myOffers, name="myOffers"),
     path("myMeetings/", views.myMeetings, name="myMeetings"),
     path("addOffer/", views.addOffer, name="addOffer"),
+    path("addMeeting/<int:offer_id>", views.addMeeting, name="addMeeting"),
 ]

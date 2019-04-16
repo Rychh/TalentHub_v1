@@ -1,4 +1,4 @@
-<!-- templates/search.html -->
+    <!-- templates/search.html -->
 
 
 {% extends 'base.html' %}
@@ -41,15 +41,22 @@
                                 <h4>{{ o.category }} - {{ o.price }} Talents by <a href="{% url 'profile' username=o.user_profile %}">{{ o.user_profile }}</a></h4>
                             </div>
                             <div class="card-body bg-dark">
-                                <p>{{ o.description }}</p>
-                                <p>
-                                    Tags: 
-                                    {% for tag in o.tag.all %}
-                                        {{ tag.name }}
-                                    {% empty %}
-                                        None!
-                                    {% endfor %}    
-                                </p>
+                                <div>
+                                    <p>{{ o.description }}</p>
+                                    <p>
+                                        Tags: 
+                                        {% for tag in o.tag.all %}
+                                            {{ tag.name }}
+                                        {% empty %}
+                                            None!
+                                        {% endfor %}    
+                                    </p>
+                                </div>
+                                <div class="d-flex flex-row justify-content-end">
+                                    {% if user.is_authenticated and o.user_profile.user.id != user.id and user.profile.balance >= o.price %}
+                                        <a type="button" class="btn btn-primary" href="{% url 'addMeeting' offer_id=o.id %}">Request meeting</a>
+                                    {% endif %}
+                                </div>
                             </div>
                         </div>
                     {% endfor %}
