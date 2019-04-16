@@ -5,6 +5,7 @@ from .models import *
 from django.views.decorators.http import require_GET
 from django.contrib.auth import get_user
 from django import forms
+import sys
 
 
 def login(request):
@@ -74,12 +75,19 @@ def myOffers(request):
     context = {'offers': offers}
     return render(request, 'myOffers.html', context)
 
+
 @login_required
-def myLessons(request):
+def myMeetings(request):
+    if request.method == "POST":
+        accept = MeetingStatus.objects.filter(name="agreed").first()
+        Meeting.objects.filter(pk=request.POST.get("acceptMeeting", "")).update(status=accept)
+
+
+
     currUser = get_user(request)
-    meetings = Meeting.objects.filter(student__user=currUser).order_by('status')
+    meetings = Meeting.objects.filter(teacher__user=currUser).order_by('status')
     context = {'meetings': meetings}
-    return render(request, 'myLessons.html', context)
+    return render(request, 'myMeetings.html', context)
 
 @login_required
 def addOffer(request):
@@ -93,6 +101,7 @@ def addOffer(request):
     else:
         form = OfferForm()
     return render(request, 'addOffer.html', {'form': form})
+
 
 class OfferForm(forms.ModelForm):
 
