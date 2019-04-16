@@ -14,6 +14,9 @@ def check_profile(*args, **kwargs):
     profile, is_new = Profile.objects.get_or_create(user=kwargs.get('user'), 
                         first_name=details['first_name'],
                         last_name=details['last_name'], age=22, balance=100)
+    if details['email'] :
+        user.email = details['email']
+        user.save()
     return {
         'profile': profile
     }
