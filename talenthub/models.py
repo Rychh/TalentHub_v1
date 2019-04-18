@@ -7,7 +7,7 @@ CATEGORY_NAME_LEN = 30
 OFFER_DESC_LEN = 1000
 TAG_LEN = 1000
 MEETING_STATUS_LEN = 30
-
+REVIEW_LEN = 1000
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -66,3 +66,12 @@ class Meeting(models.Model):
 
     def __str__(self):
         return self.teacher.user.username + " teaches " + self.student.user.username + " " + self.offer.category.name
+
+class Review(models.Model):
+    author_profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='author')
+    reviewed_profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='reviewed')
+    rating = models.PositiveSmallIntegerField(range(0, 5))
+    description = models.CharField(max_length=REVIEW_LEN)
+
+    def __str__(self):
+        return self.name    
