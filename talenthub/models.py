@@ -72,7 +72,7 @@ class Review(models.Model):
     reviewed = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='reviewed')
     category = models.ForeignKey(Category, on_delete=models.CASCADE) 
     rating = models.PositiveSmallIntegerField(range(0, 5))
-    description = models.CharField(max_length=REVIEW_LEN)
+    description = models.CharField(max_length=REVIEW_LEN, null=True)
 
     def __str__(self):
-        return self.author.user.username + " review " + self.reviewed.user.username + " " + self.category.name
+        return self.author.user.username + " reviews " + self.reviewed.user.username + " " + self.category.name
