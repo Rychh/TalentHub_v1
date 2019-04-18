@@ -68,10 +68,11 @@ class Meeting(models.Model):
         return self.teacher.user.username + " teaches " + self.student.user.username + " " + self.offer.category.name
 
 class Review(models.Model):
-    author_profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='author')
-    reviewed_profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='reviewed')
+    author = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='author')
+    reviewed = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='reviewed')
+    category = models.ForeignKey(Category, on_delete=models.CASCADE) 
     rating = models.PositiveSmallIntegerField(range(0, 5))
     description = models.CharField(max_length=REVIEW_LEN)
 
     def __str__(self):
-        return self.name    
+        return self.author.user.username + " review " + self.reviewed.user.username + " " + self.category.name
