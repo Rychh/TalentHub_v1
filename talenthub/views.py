@@ -97,6 +97,7 @@ def myMeetings(request):
     context = {'meetings': meetings}
     return render(request, 'myMeetings.html', context)
 
+
 @login_required
 def addOffer(request):
     if request.method == "POST":
@@ -110,6 +111,7 @@ def addOffer(request):
     else:
         form = OfferForm()
     return render(request, 'addOffer.html', {'form': form})
+
 
 @login_required
 def addMeeting(request, offer_id):
@@ -136,18 +138,20 @@ def addMeeting(request, offer_id):
             request.user.profile.balance -= offer.price
             request.user.profile.save()
             meeting.save()
-        
+
         return redirect('myMeetings')
-        
-        
+
+
 class MeetingForm(forms.ModelForm):
     date = forms.fields.SplitDateTimeField(widget=forms.widgets.SplitDateTimeWidget(
         date_attrs = {'type': 'date'},
         time_attrs = {'type': 'time'}
     ))
+
     class Meta:
         model = Meeting
         fields = ["date"]
+
 
 class OfferForm(forms.ModelForm):
 
