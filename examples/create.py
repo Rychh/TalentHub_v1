@@ -72,10 +72,13 @@ ms1.save()
 ms2 = MeetingStatus(name='agreed')
 ms2.save()
 
+
 asn = ["Pending", "In progress", "Ended"]
 astab = []
 for name in asn:
-    astab.append(ArgumentStatus(name=name))
+    a = ArgumentStatus(name=name)
+    a.save()
+    astab.append()
 
 argument_message = ["She stole my money.",
     "I waited for him almost 2 hours!!!",
@@ -115,3 +118,4 @@ for p in Profile.objects.all():
             arg = Argument(victim=op, accusesed=p,
                         meeting=m, status=astab[i % 10],
                         message=argument_message[i % 3])
+            arg.save()
