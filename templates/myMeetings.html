@@ -1,21 +1,22 @@
 {% extends "myAccount.html" %}
 {% block myProfileContent %}
     <div class="card bg-dark">
-        {% if meetings %}
-            <form id="acceptingMeetings" method="POST" action="">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <div class="card-header">
-                    <div class="nav nav-pills">
-                        <div class="col active"><a data-toggle="tab" href="#teacher">As a teacher</a></div>
-                        <div class="col"><a data-toggle="tab" href="#student">As a student</a></div>
-                        <div class="col"><a data-toggle="tab" href="#history">History</a></div>
-                    </div>
-                </div>
-                <div class="card-body mb-3">
-                    <div class="tab-content">
-                        <div id="teacher" class="tab-pane active">
-                            {% for m in meetings %}
+       <form id="acceptingMeetings" method="POST" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="card-header">
+                <ul class="nav nav-pills">
+                    <li class="col active"><a data-toggle="tab" href="#teacherFuture">As a teacher</a></li>
+                    <li class="col"><a data-toggle="tab" href="#studentFuture">As a student</a></li>
+                    <li class="col"><a data-toggle="tab" href="#teacherHistory">History as a teacher</a></li> 
+                    <li class="col"><a data-toggle="tab" href="#studentHistory">History as a student</a></li>
+               </ul>
+            </div>
+            <div class="card-body mb-3">
+                <div class="tab-content">
+                    <div id="teacherFuture" class="tab-pane active">
+                        {% if  teacherFuture %}
+                            {% for m in teacherFuture %}
                                 <div class="card mb-3">
                                     <div class="card-body bg-dark">
                                         <span class="card-text bg-dark">
@@ -29,53 +30,93 @@
                                             {% endif %}
                                         </span>
                                         <p class="card-text bg-dark">
-                                            meeting with {{ m.student }} on
+                                            meeting with {{ m.student }} to study
                                             {{ m.offer.category }} 
                                         </p>
                                     </div>
                                 </div>
                             {% endfor %}
-                        </div>
-                        <div id="student" class="tab-pane">
-                            <div class="row">bbbbbbb11111111</div>
-                        </div>
-                        <div id="history" class="tab-pane">
-                            <div class="row">cccccccccc1111111</div>
-                        </div>
+                        {% else %}
+                            <p>No offers available</p>
+                        {% endif %}
+                    </div>
+                    <div id="studentFuture" class="tab-pane">
+                        {% if studentFuture %}
+                            {% for m in studentFuture %}
+                                <div class="card mb-3">
+                                    <div class="card-body bg-dark">
+                                        <span class="card-text bg-dark">
+                                            {{ m.date }} - {{ m.agreed_price }} Talents 
+                                            {% if m.status.name == "pending" %}
+                                                <span class="badge badge-secondary">pending</span>
+                                                <button class="btn aqua-gradient btn-rounded btn-sm my-0" 
+                                                type="submit" name="deleteMeeting" value="{{ m.id }}">Delete</button>
+                                            {% elif m.status.name == "agreed" %}
+                                                <span class="badge badge-success">success</span>
+                                            {% endif %}
+                                        </span>
+                                        <p class="card-text bg-dark">
+                                            meeting with {{ m.teacher }} to study
+                                            {{ m.offer.category }} 
+                                        </p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <p>No offers available</p>
+                        {% endif %}
+                    </div>
+                    <div id="studentHistory" class="tab-pane">
+                        {% if studentHistory %}
+                            {% for m in studentHistory %}
+                                <div class="card mb-3">
+                                    <div class="card-body bg-dark">
+                                        <span class="card-text bg-dark">
+                                            {{ m.date }} - {{ m.agreed_price }} Talents 
+                                            {% if m.status.name == "pending" %}
+                                                <span class="badge badge-secondary">pending</span>
+                                                <a href="{% url 'addOpinion' %}">Rate</a>
+                                            {% elif m.status.name == "agreed" %}
+                                                <span class="badge badge-success">success</span>
+                                            {% endif %}
+                                        </span>
+                                        <p class="card-text bg-dark">
+                                            meeting with {{ m.teacher }} to study
+                                            {{ m.offer.category }} 
+                                        </p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <p>No offers available</p>
+                        {% endif %}
+                    </div>
+                    <div id="teacherHistory" class="tab-pane">
+                        {% if teacherHistory %}
+                            {% for m in teacherHistory %}
+                                <div class="card mb-3">
+                                    <div class="card-body bg-dark">
+                                        <span class="card-text bg-dark">
+                                            {{ m.date }} - {{ m.agreed_price }} Talents 
+                                            {% if m.status.name == "pending" %}
+                                                <span class="badge badge-secondary">pending</span>
+                                            {% elif m.status.name == "agreed" %}
+                                                <span class="badge badge-success">success</span>
+                                            {% endif %}
+                                        </span>
+                                        <p class="card-text bg-dark">
+                                            meeting with {{ m.student }} to study
+                                            {{ m.offer.category }} 
+                                        </p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <p>No offers available</p>
+                        {% endif %}
                     </div>
                 </div>
-            </form>
-        {% else %}
-            <p>No mettings</p>
-        {% endif%}
+            </div>
+        </form>
     </div>
 {% endblock %}
-
- 
-
-<div class="container">
-  <p>&nbsp;</p>
-  <p>&nbsp;</p>
-  <div class="col-md-12">
-    <div class="row">
-      <div class="col-md-12" style="margin-top: -50px;">
-        <ul class="nav nav-pills">
-          <li class="active"><a data-toggle="tab" href="#vis_opgave1">Vis opgave</a></li>
-          <li><a data-toggle="tab" href="#rediger_opgave1">Rediger Tekst</a></li>
-          <li><a data-toggle="tab" href="#admin_opgave_billeder1">Administrer billeder</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="tab-content">
-    <div id="vis_opgave1" class="tab-pane fade in active">
-      <div class="row">aaaaaaaa11111111111</div>
-    </div>
-    <div id="rediger_opgave1" class="tab-pane fade">
-      <div class="row">bbbbbbb11111111</div>
-    </div>
-    <div id="admin_opgave_billeder1" class="tab-pane fade">
-      <div class="row">cccccccccc1111111</div>
-    </div>
-  </div>
-</div>
