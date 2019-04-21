@@ -7,6 +7,8 @@ CATEGORY_NAME_LEN = 30
 OFFER_DESC_LEN = 1000
 TAG_LEN = 1000
 MEETING_STATUS_LEN = 30
+ARGUMENT_LEN = 1000
+ARGUMENT_STATUS_LEN = 30
 REVIEW_LEN = 1000
 
 class Profile(models.Model):
@@ -66,6 +68,26 @@ class Meeting(models.Model):
 
     def __str__(self):
         return self.teacher.user.username + " teaches " + self.student.user.username + " " + self.offer.category.name
+
+
+class ArgumentStatus(models.Model):
+    name = models.CharField(max_length=ARGUMENT_STATUS_LEN)
+
+    def __str__(self):
+        return self.name
+
+
+
+class Argument(models.Model):
+    victim = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='victim')
+    accusesed = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='accusesed')
+    meeting = models.ForeignKey(Meeting, on_delete=models.CASCADE)
+    message = models.CharField(max_length=ARGUMENT_LEN)
+    status = models.ForeignKey(ArgumentStatus, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.victim.user.username + " accuses " + self.accusesed.user.username
+
 
 class Review(models.Model):
     author = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='author')
