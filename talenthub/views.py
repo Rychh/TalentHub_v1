@@ -9,6 +9,7 @@ import sys
 from django.core.mail import EmailMessage
 from django.http import HttpResponse
 from django.utils import timezone
+from django.db.models.fields import IntegerField
 
 
 def login(request):
@@ -160,9 +161,28 @@ def addMeeting(request, offer_id):
 
 
 @login_required
-def addOpinion(request):
-    context = {}
-    return render(request, 'addOpinion.html', context)
+def addOpinion(request, reviewed, category):
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        author = Profile.objects.filter(user=get_user(request)).first()
+        rev = Profile.objects.filter(user__username=reviewed).first()
+        cat = Category.objects.filter(name=category).first()
+
+        if form.is_valid():
+            review = Review(
+                author=author,
+                reviewed=rev,
+                category=cat,
+                rating=form.cleaned_data['rating'],
+                description=form.cleaned_data['description']
+                )
+            review.save()
+            return redirect("myMeetings")
+        else:
+            return render(request, 'addOpinion.html', {'form': form})
+    else:
+        form = ReviewForm()
+        return render(request, 'addOpinion.html', {'form': form})
 
 
 @login_required
@@ -195,3 +215,10 @@ class OfferForm(forms.ModelForm):
     class Meta:
         model = Offer
         fields = ("description", "price", "category", "tag")
+
+
+class ReviewForm(forms.ModelForm):
+
+    class Meta:
+        model = Review
+        fields = ("rating", "description")

@@ -31,7 +31,7 @@ urlpatterns = [
     path("myMeetings/", views.myMeetings, name="myMeetings"),
     path("addOffer/", views.addOffer, name="addOffer"),
     path("addMeeting/<int:offer_id>", views.addMeeting, name="addMeeting"),
-    path("addOpinion/", views.addOpinion, name="addOpinion"),
+    path("addOpinion/<reviewed>/<category>", views.addOpinion, name="addOpinion"),
     path("addArgument/", views.addArgument, name="addArgument"),
     path("myOpinions/", views.myOpinions, name="myOpinions"),
 ]

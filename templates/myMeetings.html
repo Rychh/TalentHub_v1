@@ -78,7 +78,7 @@
                                             {% elif m.status.name == "agreed" %}
                                                 <span class="badge badge-success">success</span>
                                             {% endif %}
-                                            <a href="{% url 'addOpinion' %}">add Opinion</a>
+                                            <a href="{% url 'addOpinion' reviewed=m.teacher category=m.offer.category %}">add Opinion</a>
                                             <a href="{% url 'addArgument' %}">add Argument</a>
                                         </span>
                                         <p class="card-text bg-dark">
