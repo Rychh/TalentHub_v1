@@ -1,32 +1,122 @@
-{% extends 'myAccount.html' %}
+{% extends "myAccount.html" %}
 {% block myProfileContent %}
-    <div class="card-body">
-        {% if meetings %}
-            <form id="acceptingMeetings" method="POST" action="">
-                {% csrf_token %}
-                {{ form.as_p }}
-                {% for m in meetings %}
-                    <div class="card mb-3">
-                        <div class="card-body bg-dark">
-                            <span class="card-text bg-dark">{{ m.date }} - {{ m.agreed_price }} 
-                            Talents {% if m.status.name == 'pending' %}
-                                <span class="badge badge-secondary">pending</span>
-                                <button class="btn aqua-gradient btn-rounded btn-sm my-0" type="submit" name="acceptMeeting" value="{{ m.id }}">Accept</button>
-                            {% elif m.status.name == 'agreed' %}
-                                <span class="badge badge-success">success</span>
-                            {% endif %}
-                                 
-                            </span>
-                            <p class="card-text bg-dark">
-                                meeting with {{ m.student }} on
-                                {{ m.offer.category }} 
-                            </p>
-                        </div>
+    <div class="card bg-dark">
+       <form id="acceptingMeetings" method="POST" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="card-header">
+                <ul class="nav nav-pills">
+                    <li class="col active"><a data-toggle="tab" href="#teacherFuture">As a teacher</a></li>
+                    <li class="col"><a data-toggle="tab" href="#studentFuture">As a student</a></li>
+                    <li class="col"><a data-toggle="tab" href="#teacherHistory">History as a teacher</a></li> 
+                    <li class="col"><a data-toggle="tab" href="#studentHistory">History as a student</a></li>
+               </ul>
+            </div>
+            <div class="card-body mb-3">
+                <div class="tab-content">
+                    <div id="teacherFuture" class="tab-pane active">
+                        {% if  teacherFuture %}
+                            {% for m in teacherFuture %}
+                                <div class="card mb-3">
+                                    <div class="card-body bg-dark">
+                                        <span class="card-text bg-dark">
+                                            {{ m.date }} - {{ m.agreed_price }} Talents 
+                                            {% if m.status.name == "pending" %}
+                                                <span class="badge badge-secondary">pending</span>
+                                                <button class="btn aqua-gradient btn-rounded btn-sm my-0" 
+                                                type="submit" name="acceptMeeting" value="{{ m.id }}">Accept</button>
+                                            {% elif m.status.name == "agreed" %}
+                                                <span class="badge badge-success">success</span>
+                                            {% endif %}
+                                        </span>
+                                        <p class="card-text bg-dark">
+                                            meeting with {{ m.student }} to study
+                                            {{ m.offer.category }} 
+                                        </p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <p>No offers available</p>
+                        {% endif %}
                     </div>
-                {% endfor %}
-            </form>
-        {% else %}
-            <p>No mettings</p>
-        {% endif%}
+                    <div id="studentFuture" class="tab-pane">
+                        {% if studentFuture %}
+                            {% for m in studentFuture %}
+                                <div class="card mb-3">
+                                    <div class="card-body bg-dark">
+                                        <span class="card-text bg-dark">
+                                            {{ m.date }} - {{ m.agreed_price }} Talents 
+                                            {% if m.status.name == "pending" %}
+                                                <span class="badge badge-secondary">pending</span>
+                                                <button class="btn aqua-gradient btn-rounded btn-sm my-0" 
+                                                type="submit" name="deleteMeeting" value="{{ m.id }}">Delete</button>
+                                            {% elif m.status.name == "agreed" %}
+                                                <span class="badge badge-success">success</span>
+                                            {% endif %}
+                                        </span>
+                                        <p class="card-text bg-dark">
+                                            meeting with {{ m.teacher }} to study
+                                            {{ m.offer.category }} 
+                                        </p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <p>No offers available</p>
+                        {% endif %}
+                    </div>
+                    <div id="studentHistory" class="tab-pane">
+                        {% if studentHistory %}
+                            {% for m in studentHistory %}
+                                <div class="card mb-3">
+                                    <div class="card-body bg-dark">
+                                        <span class="card-text bg-dark">
+                                            {{ m.date }} - {{ m.agreed_price }} Talents 
+                                            {% if m.status.name == "pending" %}
+                                                <span class="badge badge-secondary">pending</span>
+                                                <a href="{% url 'addOpinion' %}">Rate</a>
+                                            {% elif m.status.name == "agreed" %}
+                                                <span class="badge badge-success">success</span>
+                                            {% endif %}
+                                        </span>
+                                        <p class="card-text bg-dark">
+                                            meeting with {{ m.teacher }} to study
+                                            {{ m.offer.category }} 
+                                        </p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <p>No offers available</p>
+                        {% endif %}
+                    </div>
+                    <div id="teacherHistory" class="tab-pane">
+                        {% if teacherHistory %}
+                            {% for m in teacherHistory %}
+                                <div class="card mb-3">
+                                    <div class="card-body bg-dark">
+                                        <span class="card-text bg-dark">
+                                            {{ m.date }} - {{ m.agreed_price }} Talents 
+                                            {% if m.status.name == "pending" %}
+                                                <span class="badge badge-secondary">pending</span>
+                                            {% elif m.status.name == "agreed" %}
+                                                <span class="badge badge-success">success</span>
+                                            {% endif %}
+                                        </span>
+                                        <p class="card-text bg-dark">
+                                            meeting with {{ m.student }} to study
+                                            {{ m.offer.category }} 
+                                        </p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <p>No offers available</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
 {% endblock %}

@@ -8,6 +8,7 @@ from django import forms
 import sys
 from django.core.mail import EmailMessage
 from django.http import HttpResponse
+from django.utils import timezone
 
 
 def login(request):
@@ -81,21 +82,35 @@ def myOffers(request):
 @login_required
 def myMeetings(request):
     if request.method == "POST":
-        accept = MeetingStatus.objects.filter(name="agreed").first()
-        Meeting.objects.filter(pk=request.POST.get("acceptMeeting", "")).update(status=accept)
-        meeting = Meeting.objects.filter(pk=request.POST.get("acceptMeeting", "")).first()
+        if request.POST.get("acceptMeeting", "") != "":
+            accept = MeetingStatus.objects.filter(name="agreed").first()
+            Meeting.objects.filter(pk=request.POST["acceptMeeting"]).update(status=accept)
+            meeting = Meeting.objects.filter(pk=request.POST.get("acceptMeeting", "")).first()
 
-        if meeting.student.user.email != '':
-            title = 'Your meeting has been accepted'
-            body = 'Your meeting with ' + meeting.teacher.user.username + \
-            ' on ' + str(meeting.date) + ' has been accepted. Make sure to be on time!'
-            email = EmailMessage(title, body, to=[meeting.student.user.email])
-            email.send()
+            if meeting.student.user.email != '':
+                title = 'Your meeting has been accepted'
+                body = 'Your meeting with ' + meeting.teacher.user.username + \
+                ' on ' + str(meeting.date) + ' has been accepted. Make sure to be on time!'
+                email = EmailMessage(title, body, to=[meeting.student.user.email])
+                email.send()
+
+        elif request.POST.get("deleteMeeting", "") != "":
+            Meeting.objects.filter(pk=request.POST["deleteMeeting"]).delete()
 
     currUser = get_user(request)
-    meetings = Meeting.objects.filter(teacher__user=currUser).order_by('status')
-    context = {'meetings': meetings}
+    now = timezone.now()
+    studentHistory = Meeting.objects.filter(date__lt=now, student__user=currUser).order_by('status')
+    teacherHistory = Meeting.objects.filter(date__lt=now, teacher__user=currUser).order_by('status')
+    studentFuture = Meeting.objects.filter(date__gte=now, student__user=currUser).order_by('status')
+    teacherFuture = Meeting.objects.filter(date__gte=now, teacher__user=currUser).order_by('status')
+    context = {
+        'studentHistory': studentHistory,
+        'teacherHistory': teacherHistory,
+        'studentFuture': studentFuture,
+        'teacherFuture': teacherFuture
+    }
     return render(request, 'myMeetings.html', context)
+
 
 @login_required
 def addOffer(request):
@@ -110,6 +125,7 @@ def addOffer(request):
     else:
         form = OfferForm()
     return render(request, 'addOffer.html', {'form': form})
+
 
 @login_required
 def addMeeting(request, offer_id):
@@ -136,18 +152,26 @@ def addMeeting(request, offer_id):
             request.user.profile.balance -= offer.price
             request.user.profile.save()
             meeting.save()
-        
+
         return redirect('myMeetings')
-        
-        
+
+
+@login_required
+def addOpinion(request):
+    context = {}
+    return render(request, 'addOpinion.html', context)
+
+
 class MeetingForm(forms.ModelForm):
     date = forms.fields.SplitDateTimeField(widget=forms.widgets.SplitDateTimeWidget(
         date_attrs = {'type': 'date'},
         time_attrs = {'type': 'time'}
     ))
+
     class Meta:
         model = Meeting
         fields = ["date"]
+
 
 class OfferForm(forms.ModelForm):
 
