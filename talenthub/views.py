@@ -95,7 +95,10 @@ def myMeetings(request):
                 email.send()
 
         elif request.POST.get("deleteMeeting", "") != "":
-            Meeting.objects.filter(pk=request.POST["deleteMeeting"]).delete()
+            meeting = Meeting.objects.filter(pk=request.POST["deleteMeeting"]).first()
+            meeting.student.balance += meeting.agreed_price
+            meeting.student.save()  
+            meeting.delete()
 
     currUser = get_user(request)
     now = timezone.now()
@@ -160,6 +163,20 @@ def addMeeting(request, offer_id):
 def addOpinion(request):
     context = {}
     return render(request, 'addOpinion.html', context)
+
+
+@login_required
+def addArgument(request):
+    context = {}
+    return render(request, 'addArgument.html', context)
+
+
+@login_required
+def myOpinions(request):
+    currUser = get_user(request)
+    reviews = Review.objects.filter(reviewed__user=currUser).order_by('category')
+    context = {'reviews': reviews}
+    return render(request, 'myOpinions.html', context)
 
 
 class MeetingForm(forms.ModelForm):

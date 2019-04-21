@@ -75,10 +75,11 @@
                                             {{ m.date }} - {{ m.agreed_price }} Talents 
                                             {% if m.status.name == "pending" %}
                                                 <span class="badge badge-secondary">pending</span>
-                                                <a href="{% url 'addOpinion' %}">Rate</a>
                                             {% elif m.status.name == "agreed" %}
                                                 <span class="badge badge-success">success</span>
                                             {% endif %}
+                                            <a href="{% url 'addOpinion' %}">add Opinion</a>
+                                            <a href="{% url 'addArgument' %}">add Argument</a>
                                         </span>
                                         <p class="card-text bg-dark">
                                             meeting with {{ m.teacher }} to study
