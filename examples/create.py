@@ -78,7 +78,7 @@ astab = []
 for name in asn:
     a = ArgumentStatus(name=name)
     a.save()
-    astab.append()
+    astab.append(a)
 
 argument_message = ["She stole my money.",
     "I waited for him almost 2 hours!!!",
