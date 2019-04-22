@@ -21,6 +21,25 @@
                         second name: {{profile.last_name}} <br>
                         age: {{profile.age}} <br>
                         talents: {{profile.balance}}T <br>
+                        {% if opinions %}
+                            {% regroup opinions by opinion as opinion_list %}
+                            {% for opinion in opinion_list %}
+                                <div class="card mb-3 bg-dark">
+                                    <div class="card-body">
+                                        {{ opinion.grouper }}
+                                        {% for c in opinion.list %}
+                                            <div class="card mb-3 bg-dark">
+                                                <div class="card-body">
+                                                    Opinion by {{ c.author }} to {{ c.reviewed }} {{ c.rating }}/5 {{ c.description }}
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <p>No opinions available</p>
+                        {% endif%}
                     {% else %}
                         No such profile in the data base
                     {% endif %}
