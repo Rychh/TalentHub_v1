@@ -96,13 +96,11 @@ def myMeetings(request):
                 email.send()
 
         elif request.POST.get("deleteMeeting", "") != "":
-            meeting = Meeting.objects.filter(pk=request.POST["deleteMeeting"]).first()
-            meeting.student.balance += meeting.agreed_price
-            meeting.student.save()  
-            meeting.delete()
+            cancelMeeting(Meeting.objects.filter(pk=request.POST["deleteMeeting"]).first())
 
     currUser = get_user(request)
     now = timezone.now()
+    updateUserMeetings(currUser)
     studentHistory = Meeting.objects.filter(date__lt=now, student__user=currUser).order_by('status')
     teacherHistory = Meeting.objects.filter(date__lt=now, teacher__user=currUser).order_by('status')
     studentFuture = Meeting.objects.filter(date__gte=now, student__user=currUser).order_by('status')
@@ -161,12 +159,15 @@ def addMeeting(request, offer_id):
 
 
 @login_required
-def addOpinion(request, reviewed, category):
+def addOpinion(request, meeting_id):
     if request.method == 'POST':
+        meeting = Meeting.objects.filter(id=meeting_id).first()
+        meeting.status = MeetingStatus.objects.filter(name="reviewed").first()
+        meeting.save()
         form = ReviewForm(request.POST)
         author = Profile.objects.filter(user=get_user(request)).first()
-        rev = Profile.objects.filter(user__username=reviewed).first()
-        cat = Category.objects.filter(name=category).first()
+        rev = meeting.teacher
+        cat = meeting.offer.category
 
         if form.is_valid():
             review = Review(
@@ -194,8 +195,10 @@ def addArgument(request):
 @login_required
 def myOpinions(request):
     currUser = get_user(request)
-    reviews = Review.objects.filter(reviewed__user=currUser).order_by('category')
-    context = {'reviews': reviews}
+    reviewsAsReviewed = Review.objects.filter(reviewed__user=currUser).order_by('category')
+    reviewsAsAuthor= Review.objects.filter(author__user=currUser).order_by('category')
+
+    context = {'reviewsAsReviewed': reviewsAsReviewed, 'reviewsAsAuthor': reviewsAsAuthor}
     return render(request, 'myOpinions.html', context)
 
 

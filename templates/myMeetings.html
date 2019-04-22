@@ -26,7 +26,7 @@
                                                 <button class="btn aqua-gradient btn-rounded btn-sm my-0" 
                                                 type="submit" name="acceptMeeting" value="{{ m.id }}">Accept</button>
                                             {% elif m.status.name == "agreed" %}
-                                                <span class="badge badge-success">success</span>
+                                                <span class="badge badge-success">agreed</span>
                                             {% endif %}
                                         </span>
                                         <p class="card-text bg-dark">
@@ -52,7 +52,7 @@
                                                 <button class="btn aqua-gradient btn-rounded btn-sm my-0" 
                                                 type="submit" name="deleteMeeting" value="{{ m.id }}">Delete</button>
                                             {% elif m.status.name == "agreed" %}
-                                                <span class="badge badge-success">success</span>
+                                                <span class="badge badge-success">agreed</span>
                                             {% endif %}
                                         </span>
                                         <p class="card-text bg-dark">
@@ -73,13 +73,13 @@
                                     <div class="card-body bg-dark">
                                         <span class="card-text bg-dark">
                                             {{ m.date }} - {{ m.agreed_price }} Talents 
-                                            {% if m.status.name == "pending" %}
-                                                <span class="badge badge-secondary">pending</span>
-                                            {% elif m.status.name == "agreed" %}
-                                                <span class="badge badge-success">success</span>
+                                            {% if m.status.name == "took_place" %}
+                                                <span class="badge badge-secondary">took place</span>
+                                                <a href="{% url 'addOpinion' m.id %}">add Opinion</a>
+                                                <a href="{% url 'addArgument' %}">add Argument</a>
+                                            {% elif m.status.name == "reviewed" %}
+                                                <span class="badge badge-success">reviewed</span>
                                             {% endif %}
-                                            <a href="{% url 'addOpinion' reviewed=m.teacher category=m.offer.category %}">add Opinion</a>
-                                            <a href="{% url 'addArgument' %}">add Argument</a>
                                         </span>
                                         <p class="card-text bg-dark">
                                             meeting with {{ m.teacher }} to study
@@ -99,10 +99,10 @@
                                     <div class="card-body bg-dark">
                                         <span class="card-text bg-dark">
                                             {{ m.date }} - {{ m.agreed_price }} Talents 
-                                            {% if m.status.name == "pending" %}
-                                                <span class="badge badge-secondary">pending</span>
-                                            {% elif m.status.name == "agreed" %}
-                                                <span class="badge badge-success">success</span>
+                                            {% if m.status.name == "took_place" %}
+                                                <span class="badge badge-secondary">took place</span>
+                                            {% elif m.status.name == "reviewed" %}
+                                                <span class="badge badge-success">reviewed</span>
                                             {% endif %}
                                         </span>
                                         <p class="card-text bg-dark">
