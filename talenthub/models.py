@@ -1,3 +1,5 @@
+from django.utils import timezone
+from django.db.models import Q
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -70,12 +72,30 @@ class Meeting(models.Model):
         return self.teacher.user.username + " teaches " + self.student.user.username + " " + self.offer.category.name
 
 
+def cancelMeeting(meeting):
+    meeting.student.balance += meeting.agreed_price
+    meeting.student.save()
+    meeting.delete()
+
+
+def updateUserMeetings(currUser):
+    meetings = Meeting.objects.filter(Q(student__user=currUser) | Q(teacher__user=currUser))
+    took_place = MeetingStatus.objects.filter(name="took_place").first()
+    now = timezone.now()
+    for meeting in meetings:
+        if meeting.date < now:
+            if meeting.status.name == "pending":
+                cancelMeeting(meeting)
+            elif meeting.status.name == "agreed":
+                meeting.status = took_place
+                meeting.save()
+
+
 class ArgumentStatus(models.Model):
     name = models.CharField(max_length=ARGUMENT_STATUS_LEN)
 
     def __str__(self):
         return self.name
-
 
 
 class Argument(models.Model):
