@@ -24,6 +24,26 @@
                     {% else %}
                         No such profile in the data base
                     {% endif %}
+                    
+                    {% if reviews %}
+                        {% regroup reviews by category as category_list %}
+                        {% for category in category_list %}
+                            <div class="card mb-3 bg-dark">
+                                <div class="card-body">
+                                    {{ category.grouper }}
+                                    {% for c in category.list %}
+                                        <div class="card mb-3 bg-dark">
+                                            <div class="card-body">
+                                                Opinion by {{ c.author }} {{ c.rating }}/5 {{ c.description }}
+                                            </div>
+                                        </div>
+                                  {% endfor %}
+                                </div>
+                         </div>
+                        {% endfor %}
+                    {% else %}
+                        <p>No opinions available</p>
+                    {% endif%}
                 </div>
             </div>
         </div>

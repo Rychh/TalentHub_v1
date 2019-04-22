@@ -42,10 +42,10 @@ def search(request):
             offers = offers.order_by('price')
 
         if sort == "User Name: A->Z":
-            offers = offers.order_by('user_profile')
+            offers = offers.order_by('-user_profile')
 
         if sort == "User Name: Z->A":
-            offers = offers.order_by('-user_profile')
+            offers = offers.order_by('user_profile')
 
         if sort == "Tag: from the most matching":
             offers = offers.annotate(count=Count('pk')).distinct().order_by('-count')
@@ -53,14 +53,13 @@ def search(request):
     context = {'offers': offers, 'category': category}
     return render(request, 'search.html', context)
 
-
 @require_GET
+@login_required
 def profile(request, username):
     profile = Profile.objects.filter(user__username=username)
-    context = {'profile': profile.first()}
-
+    reviews = Review.objects.filter(reviewed=profile.first()).order_by('category')
+    context = {'profile': profile.first(), 'reviews': reviews}
     return render(request, 'profile.html', context)
-
 
 @require_GET
 @login_required
