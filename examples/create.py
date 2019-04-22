@@ -72,6 +72,12 @@ ms1.save()
 ms2 = MeetingStatus(name='agreed')
 ms2.save()
 
+ms3 = MeetingStatus(name='took_place')
+ms3.save()
+
+ms4 = MeetingStatus(name='reviewed')
+ms4.save()
+
 for p in Profile.objects.all():
     ofers = Offer.objects.filter(user_profile=p)
     mss = [ms1, ms2]
