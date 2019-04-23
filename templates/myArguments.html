@@ -1,0 +1,24 @@
+{% extends "myAccount.html" %}
+{% block myProfileContent %}
+    <div class="card-body">
+        {% if arguments %}
+            {% for a in arguments %}
+                <div class="card mb-3">
+                    <div class="card-header bg-dark">
+                        You accuses {{ a.accusesed }}
+                        {% if a.status.name == "ended" %}
+                            <span class="badge badge-success">ended</span>
+                        {% else %}
+                            <span class="badge badge-secondary">{{a.status.name}}</span>
+                        {% endif %}
+                    </div>
+                    <div class="card-body bg-dark">
+                        {{ a.message }}
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No offers available</p>
+        {% endif%}
+    </div>
+{% endblock %}

@@ -59,9 +59,7 @@ def search(request):
 def profile(request, username):
     profile = Profile.objects.filter(user__username=username).first()
     opinions = Review.objects.filter(reviewed__user=profile.user).order_by('category')
-
     context = {'profile': profile, 'opinions': opinions}
-
     return render(request, 'profile.html', context)
 
 
@@ -230,7 +228,10 @@ def myOpinions(request):
 
 @login_required
 def myArguments(request):
-    return HttpResponse("TODO")
+    currUser = get_user(request)
+    arguments = Argument.objects.filter(victim__user=currUser).order_by('status')
+    context = {'arguments': arguments}
+    return render(request, 'myArguments.html', context)
 
 
 
