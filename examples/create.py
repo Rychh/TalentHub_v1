@@ -72,6 +72,10 @@ ms1.save()
 ms2 = MeetingStatus(name='agreed')
 ms2.save()
 
+ms3 = MeetingStatus(name='took_place')
+ms3.save()
+ms4 = MeetingStatus(name='reviewed')
+ms4.save()
 
 asn = ["Pending", "In progress", "Ended"]
 astab = []
