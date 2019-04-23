@@ -74,9 +74,38 @@ ms2.save()
 
 ms3 = MeetingStatus(name='took_place')
 ms3.save()
-
 ms4 = MeetingStatus(name='reviewed')
 ms4.save()
+
+asn = ["Pending", "In progress", "Ended"]
+astab = []
+for name in asn:
+    a = ArgumentStatus(name=name)
+    a.save()
+    astab.append(a)
+
+argument_message = ["She stole my money.",
+    "I waited for him almost 2 hours!!!",
+    "He knew nothing."]
+
+review_message = ["Nice.", "THX Dude",
+    "He is a hero for me", 
+    "To kondominium niemiecko-rosyjskie pod żydowskim zarządem powierniczym.",
+    "djsnkasndksna", "Rychh is better.", "Poorly"]
+
+
+for p in Profile.objects.all():
+    cat = Category.objects.filter()
+    for i in range(0,7):
+        other_profiles = Profile.objects.exclude(user=p.user)
+        opc = other_profiles.count()
+        op = other_profiles[random.randint(0, opc - 1)]
+        catc = cat.count()
+        c = cat[random.randint(0, catc - 1)]
+        rev = Review(author=p, reviewed=op, category=c, rating=i%6,
+                description=review_message[i%7])
+        rev.save()
+            
 
 for p in Profile.objects.all():
     ofers = Offer.objects.filter(user_profile=p)
@@ -89,3 +118,8 @@ for p in Profile.objects.all():
                     status=mss[i % 2], student=op,
                     teacher=p, offer=ofers[i])
         m.save()
+        if i % 10 < 3: #<3
+            arg = Argument(victim=op, accusesed=p,
+                        meeting=m, status=astab[i % 10],
+                        message=argument_message[i % 3])
+            arg.save()
