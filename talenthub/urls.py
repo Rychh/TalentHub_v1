@@ -32,6 +32,7 @@ urlpatterns = [
     path("addOffer/", views.addOffer, name="addOffer"),
     path("addMeeting/<int:offer_id>", views.addMeeting, name="addMeeting"),
     path("addOpinion/<int:meeting_id>", views.addOpinion, name="addOpinion"),
-    path("addArgument/", views.addArgument, name="addArgument"),
+    path("addArgument/<int:meeting_id>", views.addArgument, name="addArgument"),
     path("myOpinions/", views.myOpinions, name="myOpinions"),
+    path("myArguments/", views.myArguments, name="myArguments"),
 ]
