@@ -229,7 +229,7 @@ def myOpinions(request):
 @login_required
 def myArguments(request):
     currUser = get_user(request)
-    arguments = Argument.objects.filter(victim__user=currUser).order_by('-status')
+    arguments = Argument.objects.filter(victim__user=currUser).order_by('status')
     context = {'arguments': arguments}
     return render(request, 'myArguments.html', context)
 
