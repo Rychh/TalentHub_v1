@@ -76,7 +76,7 @@
                                             {% if m.status.name == "took_place" %}
                                                 <span class="badge badge-secondary">took place</span>
                                                 <a href="{% url 'addOpinion' m.id %}">add Opinion</a>
-                                                <a href="{% url 'addArgument' %}">add Argument</a>
+                                                <a href="{% url 'addArgument' m.id %}">add Argument</a>
                                             {% elif m.status.name == "reviewed" %}
                                                 <span class="badge badge-success">reviewed</span>
                                             {% endif %}

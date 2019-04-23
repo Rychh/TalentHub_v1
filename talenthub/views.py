@@ -189,9 +189,34 @@ def addOpinion(request, meeting_id):
 
 
 @login_required
-def addArgument(request):
-    context = {}
-    return render(request, 'addArgument.html', context)
+def addArgument(request, meeting_id):
+    meeting = get_object_or_404(Meeting, id=meeting_id)
+    author = Profile.objects.filter(user=get_user(request)).first()
+
+    number_of_arguments = Argument.objects.filter(meeting=meeting_id).count()
+
+    if meeting.student.id != author.id or number_of_arguments > 0:
+        return redirect("myArguments")
+
+    if request.method == 'POST':
+        meeting.status = MeetingStatus.objects.filter(name="reviewed").first()
+        meeting.save()
+        form = ArgumentForm(request.POST)
+
+        if form.is_valid():
+            argument = Argument(
+                victim=author,
+                accusesed = meeting.teacher,
+                meeting=meeting,
+                status = ArgumentStatus.objects.filter(name="pending").first(),
+                message=form.cleaned_data['message'],
+                )
+            argument.save()
+        return redirect("myArguments")
+    else:
+        form = ArgumentForm()
+        return render(request, 'addArgument.html', {'form': form})
+
 
 
 @login_required
@@ -202,6 +227,11 @@ def myOpinions(request):
 
     context = {'reviewsAsReviewed': reviewsAsReviewed, 'reviewsAsAuthor': reviewsAsAuthor}
     return render(request, 'myOpinions.html', context)
+
+@login_required
+def myArguments(request):
+    return HttpResponse("TODO")
+
 
 
 class MeetingForm(forms.ModelForm):
@@ -227,3 +257,10 @@ class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
         fields = ("rating", "description")
+
+class ArgumentForm(forms.ModelForm):
+
+    class Meta:
+        model = Argument
+        fields = ("message",)
+
