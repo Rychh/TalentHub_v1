@@ -59,7 +59,6 @@ def search(request):
 def profile(request, username):
     profile = Profile.objects.filter(user__username=username).first()
     opinions = Review.objects.filter(reviewed__user=profile.user).order_by('category')
-    opinions = Review.objects.filter(reviewed__user=get_user(request)).order_by('category')
 
     context = {'profile': profile, 'opinions': opinions}
 

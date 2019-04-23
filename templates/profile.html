@@ -22,7 +22,7 @@
                         age: {{profile.age}} <br>
                         talents: {{profile.balance}}T <br>
                         {% if opinions %}
-                            {% regroup opinions by opinion as opinion_list %}
+                            {% regroup opinions by category as opinion_list %}
                             {% for opinion in opinion_list %}
                                 <div class="card mb-3 bg-dark">
                                     <div class="card-body">
