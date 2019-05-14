@@ -1,0 +1,69 @@
+talenthub package
+=================
+
+Subpackages
+-----------
+
+.. toctree::
+
+    talenthub.settings
+
+Submodules
+----------
+
+talenthub.admin module
+----------------------
+
+.. automodule:: talenthub.admin
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+talenthub.models module
+-----------------------
+
+.. automodule:: talenthub.models
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+talenthub.pipeline module
+-------------------------
+
+.. automodule:: talenthub.pipeline
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+talenthub.urls module
+---------------------
+
+.. automodule:: talenthub.urls
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+talenthub.views module
+----------------------
+
+.. automodule:: talenthub.views
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+talenthub.wsgi module
+---------------------
+
+.. automodule:: talenthub.wsgi
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: talenthub
+    :members:
+    :undoc-members:
+    :show-inheritance:

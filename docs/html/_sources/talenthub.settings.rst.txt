@@ -1,0 +1,30 @@
+talenthub.settings package
+==========================
+
+Submodules
+----------
+
+talenthub.settings.base module
+------------------------------
+
+.. automodule:: talenthub.settings.base
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+talenthub.settings.production module
+------------------------------------
+
+.. automodule:: talenthub.settings.production
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: talenthub.settings
+    :members:
+    :undoc-members:
+    :show-inheritance:
