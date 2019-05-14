@@ -1,0 +1,1304 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <title>talenthub package &#8212; TalentHub 1.0 - dokumentacja</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="index" title="Indeks" href="genindex.html" />
+    <link rel="search" title="Szukaj" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="talenthub-package">
+<h1>talenthub package<a class="headerlink" href="#talenthub-package" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="talenthub.settings.html">talenthub.settings package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="talenthub.settings.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="talenthub.settings.html#module-talenthub.settings.base">talenthub.settings.base module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="talenthub.settings.html#module-talenthub.settings.production">talenthub.settings.production module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="talenthub.settings.html#module-talenthub.settings">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+</div>
+<div class="section" id="module-talenthub.admin">
+<span id="talenthub-admin-module"></span><h2>talenthub.admin module<a class="headerlink" href="#module-talenthub.admin" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+</div>
+<div class="section" id="module-talenthub.models">
+<span id="talenthub-models-module"></span><h2>talenthub.models module<a class="headerlink" href="#module-talenthub.models" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<dl class="class">
+<dt id="talenthub.models.Argument">
+<em class="property">class </em><code class="descclassname">talenthub.models.</code><code class="descname">Argument</code><span class="sig-paren">(</span><em>id</em>, <em>victim</em>, <em>accusesed</em>, <em>meeting</em>, <em>message</em>, <em>status</em><span class="sig-paren">)</span><a class="headerlink" href="#talenthub.models.Argument" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="talenthub.models.Argument.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#talenthub.models.Argument.DoesNotExist" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="talenthub.models.Argument.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#talenthub.models.Argument.MultipleObjectsReturned" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Argument.accusesed">
+<code class="descname">accusesed</code><a class="headerlink" href="#talenthub.models.Argument.accusesed" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Argument.accusesed_id">
+<code class="descname">accusesed_id</code><a class="headerlink" href="#talenthub.models.Argument.accusesed_id" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Argument.id">
+<code class="descname">id</code><a class="headerlink" href="#talenthub.models.Argument.id" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Argument.meeting">
+<code class="descname">meeting</code><a class="headerlink" href="#talenthub.models.Argument.meeting" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Argument.meeting_id">
+<code class="descname">meeting_id</code><a class="headerlink" href="#talenthub.models.Argument.meeting_id" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Argument.message">
+<code class="descname">message</code><a class="headerlink" href="#talenthub.models.Argument.message" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Argument.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#talenthub.models.Argument.objects" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Argument.status">
+<code class="descname">status</code><a class="headerlink" href="#talenthub.models.Argument.status" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Argument.status_id">
+<code class="descname">status_id</code><a class="headerlink" href="#talenthub.models.Argument.status_id" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Argument.victim">
+<code class="descname">victim</code><a class="headerlink" href="#talenthub.models.Argument.victim" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Argument.victim_id">
+<code class="descname">victim_id</code><a class="headerlink" href="#talenthub.models.Argument.victim_id" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="talenthub.models.ArgumentStatus">
+<em class="property">class </em><code class="descclassname">talenthub.models.</code><code class="descname">ArgumentStatus</code><span class="sig-paren">(</span><em>id</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#talenthub.models.ArgumentStatus" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="talenthub.models.ArgumentStatus.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#talenthub.models.ArgumentStatus.DoesNotExist" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="talenthub.models.ArgumentStatus.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#talenthub.models.ArgumentStatus.MultipleObjectsReturned" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.ArgumentStatus.argument_set">
+<code class="descname">argument_set</code><a class="headerlink" href="#talenthub.models.ArgumentStatus.argument_set" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.ArgumentStatus.id">
+<code class="descname">id</code><a class="headerlink" href="#talenthub.models.ArgumentStatus.id" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.ArgumentStatus.name">
+<code class="descname">name</code><a class="headerlink" href="#talenthub.models.ArgumentStatus.name" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.ArgumentStatus.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#talenthub.models.ArgumentStatus.objects" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="talenthub.models.Category">
+<em class="property">class </em><code class="descclassname">talenthub.models.</code><code class="descname">Category</code><span class="sig-paren">(</span><em>id</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#talenthub.models.Category" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="talenthub.models.Category.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#talenthub.models.Category.DoesNotExist" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="talenthub.models.Category.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#talenthub.models.Category.MultipleObjectsReturned" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Category.id">
+<code class="descname">id</code><a class="headerlink" href="#talenthub.models.Category.id" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Category.name">
+<code class="descname">name</code><a class="headerlink" href="#talenthub.models.Category.name" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Category.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#talenthub.models.Category.objects" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Category.offer_set">
+<code class="descname">offer_set</code><a class="headerlink" href="#talenthub.models.Category.offer_set" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Category.review_set">
+<code class="descname">review_set</code><a class="headerlink" href="#talenthub.models.Category.review_set" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="talenthub.models.Meeting">
+<em class="property">class </em><code class="descclassname">talenthub.models.</code><code class="descname">Meeting</code><span class="sig-paren">(</span><em>id</em>, <em>date</em>, <em>student</em>, <em>teacher</em>, <em>offer</em>, <em>agreed_price</em>, <em>status</em><span class="sig-paren">)</span><a class="headerlink" href="#talenthub.models.Meeting" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="talenthub.models.Meeting.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#talenthub.models.Meeting.DoesNotExist" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="talenthub.models.Meeting.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#talenthub.models.Meeting.MultipleObjectsReturned" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Meeting.agreed_price">
+<code class="descname">agreed_price</code><a class="headerlink" href="#talenthub.models.Meeting.agreed_price" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Meeting.argument_set">
+<code class="descname">argument_set</code><a class="headerlink" href="#talenthub.models.Meeting.argument_set" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Meeting.date">
+<code class="descname">date</code><a class="headerlink" href="#talenthub.models.Meeting.date" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="talenthub.models.Meeting.get_next_by_date">
+<code class="descname">get_next_by_date</code><span class="sig-paren">(</span><em>*</em>, <em>field=&lt;django.db.models.fields.DateTimeField: date&gt;</em>, <em>is_next=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#talenthub.models.Meeting.get_next_by_date" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="talenthub.models.Meeting.get_previous_by_date">
+<code class="descname">get_previous_by_date</code><span class="sig-paren">(</span><em>*</em>, <em>field=&lt;django.db.models.fields.DateTimeField: date&gt;</em>, <em>is_next=False</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#talenthub.models.Meeting.get_previous_by_date" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Meeting.id">
+<code class="descname">id</code><a class="headerlink" href="#talenthub.models.Meeting.id" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Meeting.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#talenthub.models.Meeting.objects" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Meeting.offer">
+<code class="descname">offer</code><a class="headerlink" href="#talenthub.models.Meeting.offer" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Meeting.offer_id">
+<code class="descname">offer_id</code><a class="headerlink" href="#talenthub.models.Meeting.offer_id" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Meeting.status">
+<code class="descname">status</code><a class="headerlink" href="#talenthub.models.Meeting.status" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Meeting.status_id">
+<code class="descname">status_id</code><a class="headerlink" href="#talenthub.models.Meeting.status_id" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Meeting.student">
+<code class="descname">student</code><a class="headerlink" href="#talenthub.models.Meeting.student" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Meeting.student_id">
+<code class="descname">student_id</code><a class="headerlink" href="#talenthub.models.Meeting.student_id" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Meeting.teacher">
+<code class="descname">teacher</code><a class="headerlink" href="#talenthub.models.Meeting.teacher" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Meeting.teacher_id">
+<code class="descname">teacher_id</code><a class="headerlink" href="#talenthub.models.Meeting.teacher_id" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="talenthub.models.MeetingStatus">
+<em class="property">class </em><code class="descclassname">talenthub.models.</code><code class="descname">MeetingStatus</code><span class="sig-paren">(</span><em>id</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#talenthub.models.MeetingStatus" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="talenthub.models.MeetingStatus.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#talenthub.models.MeetingStatus.DoesNotExist" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="talenthub.models.MeetingStatus.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#talenthub.models.MeetingStatus.MultipleObjectsReturned" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.MeetingStatus.id">
+<code class="descname">id</code><a class="headerlink" href="#talenthub.models.MeetingStatus.id" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.MeetingStatus.meeting_set">
+<code class="descname">meeting_set</code><a class="headerlink" href="#talenthub.models.MeetingStatus.meeting_set" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.MeetingStatus.name">
+<code class="descname">name</code><a class="headerlink" href="#talenthub.models.MeetingStatus.name" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.MeetingStatus.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#talenthub.models.MeetingStatus.objects" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="talenthub.models.Offer">
+<em class="property">class </em><code class="descclassname">talenthub.models.</code><code class="descname">Offer</code><span class="sig-paren">(</span><em>id</em>, <em>description</em>, <em>price</em>, <em>category</em>, <em>user_profile</em>, <em>avaliability</em><span class="sig-paren">)</span><a class="headerlink" href="#talenthub.models.Offer" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="talenthub.models.Offer.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#talenthub.models.Offer.DoesNotExist" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="talenthub.models.Offer.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#talenthub.models.Offer.MultipleObjectsReturned" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Offer.avaliability">
+<code class="descname">avaliability</code><a class="headerlink" href="#talenthub.models.Offer.avaliability" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Offer.category">
+<code class="descname">category</code><a class="headerlink" href="#talenthub.models.Offer.category" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Offer.category_id">
+<code class="descname">category_id</code><a class="headerlink" href="#talenthub.models.Offer.category_id" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Offer.description">
+<code class="descname">description</code><a class="headerlink" href="#talenthub.models.Offer.description" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Offer.id">
+<code class="descname">id</code><a class="headerlink" href="#talenthub.models.Offer.id" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Offer.meeting_set">
+<code class="descname">meeting_set</code><a class="headerlink" href="#talenthub.models.Offer.meeting_set" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Offer.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#talenthub.models.Offer.objects" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Offer.price">
+<code class="descname">price</code><a class="headerlink" href="#talenthub.models.Offer.price" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Offer.tag">
+<code class="descname">tag</code><a class="headerlink" href="#talenthub.models.Offer.tag" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the forward and reverse sides of
+a many-to-many relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Pizza</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">toppings</span> <span class="o">=</span> <span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Topping</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;pizzas&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Pizza.toppings</span></code> and <code class="docutils literal notranslate"><span class="pre">Topping.pizzas</span></code> are <code class="docutils literal notranslate"><span class="pre">ManyToManyDescriptor</span></code>
+instances.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Offer.user_profile">
+<code class="descname">user_profile</code><a class="headerlink" href="#talenthub.models.Offer.user_profile" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Offer.user_profile_id">
+<code class="descname">user_profile_id</code><a class="headerlink" href="#talenthub.models.Offer.user_profile_id" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="talenthub.models.Profile">
+<em class="property">class </em><code class="descclassname">talenthub.models.</code><code class="descname">Profile</code><span class="sig-paren">(</span><em>id</em>, <em>user</em>, <em>first_name</em>, <em>last_name</em>, <em>age</em>, <em>balance</em><span class="sig-paren">)</span><a class="headerlink" href="#talenthub.models.Profile" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="talenthub.models.Profile.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#talenthub.models.Profile.DoesNotExist" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="talenthub.models.Profile.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#talenthub.models.Profile.MultipleObjectsReturned" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Profile.accusesed">
+<code class="descname">accusesed</code><a class="headerlink" href="#talenthub.models.Profile.accusesed" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Profile.age">
+<code class="descname">age</code><a class="headerlink" href="#talenthub.models.Profile.age" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Profile.author">
+<code class="descname">author</code><a class="headerlink" href="#talenthub.models.Profile.author" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Profile.balance">
+<code class="descname">balance</code><a class="headerlink" href="#talenthub.models.Profile.balance" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Profile.first_name">
+<code class="descname">first_name</code><a class="headerlink" href="#talenthub.models.Profile.first_name" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Profile.id">
+<code class="descname">id</code><a class="headerlink" href="#talenthub.models.Profile.id" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Profile.last_name">
+<code class="descname">last_name</code><a class="headerlink" href="#talenthub.models.Profile.last_name" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Profile.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#talenthub.models.Profile.objects" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Profile.offer_set">
+<code class="descname">offer_set</code><a class="headerlink" href="#talenthub.models.Profile.offer_set" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Profile.reviewed">
+<code class="descname">reviewed</code><a class="headerlink" href="#talenthub.models.Profile.reviewed" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Profile.student">
+<code class="descname">student</code><a class="headerlink" href="#talenthub.models.Profile.student" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Profile.teacher">
+<code class="descname">teacher</code><a class="headerlink" href="#talenthub.models.Profile.teacher" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Profile.user">
+<code class="descname">user</code><a class="headerlink" href="#talenthub.models.Profile.user" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a one-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Restaurant.place</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardOneToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Profile.user_id">
+<code class="descname">user_id</code><a class="headerlink" href="#talenthub.models.Profile.user_id" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Profile.victim">
+<code class="descname">victim</code><a class="headerlink" href="#talenthub.models.Profile.victim" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="talenthub.models.Review">
+<em class="property">class </em><code class="descclassname">talenthub.models.</code><code class="descname">Review</code><span class="sig-paren">(</span><em>id</em>, <em>author</em>, <em>reviewed</em>, <em>category</em>, <em>rating</em>, <em>description</em><span class="sig-paren">)</span><a class="headerlink" href="#talenthub.models.Review" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="talenthub.models.Review.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#talenthub.models.Review.DoesNotExist" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="talenthub.models.Review.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#talenthub.models.Review.MultipleObjectsReturned" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Review.author">
+<code class="descname">author</code><a class="headerlink" href="#talenthub.models.Review.author" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Review.author_id">
+<code class="descname">author_id</code><a class="headerlink" href="#talenthub.models.Review.author_id" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Review.category">
+<code class="descname">category</code><a class="headerlink" href="#talenthub.models.Review.category" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Review.category_id">
+<code class="descname">category_id</code><a class="headerlink" href="#talenthub.models.Review.category_id" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Review.description">
+<code class="descname">description</code><a class="headerlink" href="#talenthub.models.Review.description" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Review.id">
+<code class="descname">id</code><a class="headerlink" href="#talenthub.models.Review.id" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Review.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#talenthub.models.Review.objects" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Review.rating">
+<code class="descname">rating</code><a class="headerlink" href="#talenthub.models.Review.rating" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Review.reviewed">
+<code class="descname">reviewed</code><a class="headerlink" href="#talenthub.models.Review.reviewed" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Review.reviewed_id">
+<code class="descname">reviewed_id</code><a class="headerlink" href="#talenthub.models.Review.reviewed_id" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="talenthub.models.Tag">
+<em class="property">class </em><code class="descclassname">talenthub.models.</code><code class="descname">Tag</code><span class="sig-paren">(</span><em>id</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#talenthub.models.Tag" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="talenthub.models.Tag.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#talenthub.models.Tag.DoesNotExist" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="talenthub.models.Tag.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#talenthub.models.Tag.MultipleObjectsReturned" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Tag.id">
+<code class="descname">id</code><a class="headerlink" href="#talenthub.models.Tag.id" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Tag.name">
+<code class="descname">name</code><a class="headerlink" href="#talenthub.models.Tag.name" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Tag.objects">
+<code class="descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#talenthub.models.Tag.objects" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.models.Tag.offer_set">
+<code class="descname">offer_set</code><a class="headerlink" href="#talenthub.models.Tag.offer_set" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the forward and reverse sides of
+a many-to-many relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Pizza</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">toppings</span> <span class="o">=</span> <span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Topping</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;pizzas&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Pizza.toppings</span></code> and <code class="docutils literal notranslate"><span class="pre">Topping.pizzas</span></code> are <code class="docutils literal notranslate"><span class="pre">ManyToManyDescriptor</span></code>
+instances.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="talenthub.models.cancelMeeting">
+<code class="descclassname">talenthub.models.</code><code class="descname">cancelMeeting</code><span class="sig-paren">(</span><em>meeting</em><span class="sig-paren">)</span><a class="headerlink" href="#talenthub.models.cancelMeeting" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="talenthub.models.updateUserMeetings">
+<code class="descclassname">talenthub.models.</code><code class="descname">updateUserMeetings</code><span class="sig-paren">(</span><em>currUser</em><span class="sig-paren">)</span><a class="headerlink" href="#talenthub.models.updateUserMeetings" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-talenthub.pipeline">
+<span id="talenthub-pipeline-module"></span><h2>talenthub.pipeline module<a class="headerlink" href="#module-talenthub.pipeline" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<dl class="function">
+<dt id="talenthub.pipeline.check_profile">
+<code class="descclassname">talenthub.pipeline.</code><code class="descname">check_profile</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#talenthub.pipeline.check_profile" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>check that the user have an existing profile</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-talenthub.urls">
+<span id="talenthub-urls-module"></span><h2>talenthub.urls module<a class="headerlink" href="#module-talenthub.urls" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<p>talenthub URL Configuration</p>
+<dl class="simple">
+<dt>The <cite>urlpatterns</cite> list routes URLs to views. For more information please see:</dt><dd><p><a class="reference external" href="https://docs.djangoproject.com/en/2.1/topics/http/urls/">https://docs.djangoproject.com/en/2.1/topics/http/urls/</a></p>
+</dd>
+</dl>
+<p>Examples:
+Function views</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Add an import:  from my_app import views</p></li>
+<li><p>Add a URL to urlpatterns:  path(«», views.home, name=»home»)</p></li>
+</ol>
+</div></blockquote>
+<dl class="simple">
+<dt>Class-based views</dt><dd><ol class="arabic simple">
+<li><p>Add an import:  from other_app.views import Home</p></li>
+<li><p>Add a URL to urlpatterns:  path(«», Home.as_view(), name=»home»)</p></li>
+</ol>
+</dd>
+<dt>Including another URLconf</dt><dd><ol class="arabic simple">
+<li><p>Import the include() function: from django.urls import include, path</p></li>
+<li><p>Add a URL to urlpatterns:  path(«blog/», include(«blog.urls»))</p></li>
+</ol>
+</dd>
+</dl>
+<dl class="function">
+<dt id="talenthub.urls.path">
+<code class="descclassname">talenthub.urls.</code><code class="descname">path</code><span class="sig-paren">(</span><em>route</em>, <em>view</em>, <em>kwargs=None</em>, <em>name=None</em>, <em>*</em>, <em>Pattern=&lt;class 'django.urls.resolvers.RoutePattern'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#talenthub.urls.path" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-talenthub.views">
+<span id="talenthub-views-module"></span><h2>talenthub.views module<a class="headerlink" href="#module-talenthub.views" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<dl class="class">
+<dt id="talenthub.views.ArgumentForm">
+<em class="property">class </em><code class="descclassname">talenthub.views.</code><code class="descname">ArgumentForm</code><span class="sig-paren">(</span><em>data=None</em>, <em>files=None</em>, <em>auto_id='id_%s'</em>, <em>prefix=None</em>, <em>initial=None</em>, <em>error_class=&lt;class 'django.forms.utils.ErrorList'&gt;</em>, <em>label_suffix=None</em>, <em>empty_permitted=False</em>, <em>instance=None</em>, <em>use_required_attribute=None</em>, <em>renderer=None</em><span class="sig-paren">)</span><a class="headerlink" href="#talenthub.views.ArgumentForm" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.forms.models.ModelForm</span></code></p>
+<dl class="class">
+<dt id="talenthub.views.ArgumentForm.Meta">
+<em class="property">class </em><code class="descname">Meta</code><a class="headerlink" href="#talenthub.views.ArgumentForm.Meta" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="talenthub.views.ArgumentForm.Meta.fields">
+<code class="descname">fields</code><em class="property"> = ('message',)</em><a class="headerlink" href="#talenthub.views.ArgumentForm.Meta.fields" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.views.ArgumentForm.Meta.model">
+<code class="descname">model</code><a class="headerlink" href="#talenthub.views.ArgumentForm.Meta.model" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>alias klasy <a class="reference internal" href="#talenthub.models.Argument" title="talenthub.models.Argument"><code class="xref py py-class docutils literal notranslate"><span class="pre">talenthub.models.Argument</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.views.ArgumentForm.base_fields">
+<code class="descname">base_fields</code><em class="property"> = {'message': &lt;django.forms.fields.CharField object&gt;}</em><a class="headerlink" href="#talenthub.views.ArgumentForm.base_fields" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.views.ArgumentForm.declared_fields">
+<code class="descname">declared_fields</code><em class="property"> = {}</em><a class="headerlink" href="#talenthub.views.ArgumentForm.declared_fields" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.views.ArgumentForm.media">
+<code class="descname">media</code><a class="headerlink" href="#talenthub.views.ArgumentForm.media" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="talenthub.views.MeetingForm">
+<em class="property">class </em><code class="descclassname">talenthub.views.</code><code class="descname">MeetingForm</code><span class="sig-paren">(</span><em>data=None</em>, <em>files=None</em>, <em>auto_id='id_%s'</em>, <em>prefix=None</em>, <em>initial=None</em>, <em>error_class=&lt;class 'django.forms.utils.ErrorList'&gt;</em>, <em>label_suffix=None</em>, <em>empty_permitted=False</em>, <em>instance=None</em>, <em>use_required_attribute=None</em>, <em>renderer=None</em><span class="sig-paren">)</span><a class="headerlink" href="#talenthub.views.MeetingForm" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.forms.models.ModelForm</span></code></p>
+<dl class="class">
+<dt id="talenthub.views.MeetingForm.Meta">
+<em class="property">class </em><code class="descname">Meta</code><a class="headerlink" href="#talenthub.views.MeetingForm.Meta" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="talenthub.views.MeetingForm.Meta.fields">
+<code class="descname">fields</code><em class="property"> = ['date']</em><a class="headerlink" href="#talenthub.views.MeetingForm.Meta.fields" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.views.MeetingForm.Meta.model">
+<code class="descname">model</code><a class="headerlink" href="#talenthub.views.MeetingForm.Meta.model" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>alias klasy <a class="reference internal" href="#talenthub.models.Meeting" title="talenthub.models.Meeting"><code class="xref py py-class docutils literal notranslate"><span class="pre">talenthub.models.Meeting</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.views.MeetingForm.base_fields">
+<code class="descname">base_fields</code><em class="property"> = {'date': &lt;django.forms.fields.SplitDateTimeField object&gt;}</em><a class="headerlink" href="#talenthub.views.MeetingForm.base_fields" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.views.MeetingForm.declared_fields">
+<code class="descname">declared_fields</code><em class="property"> = {'date': &lt;django.forms.fields.SplitDateTimeField object&gt;}</em><a class="headerlink" href="#talenthub.views.MeetingForm.declared_fields" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.views.MeetingForm.media">
+<code class="descname">media</code><a class="headerlink" href="#talenthub.views.MeetingForm.media" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="talenthub.views.OfferForm">
+<em class="property">class </em><code class="descclassname">talenthub.views.</code><code class="descname">OfferForm</code><span class="sig-paren">(</span><em>data=None</em>, <em>files=None</em>, <em>auto_id='id_%s'</em>, <em>prefix=None</em>, <em>initial=None</em>, <em>error_class=&lt;class 'django.forms.utils.ErrorList'&gt;</em>, <em>label_suffix=None</em>, <em>empty_permitted=False</em>, <em>instance=None</em>, <em>use_required_attribute=None</em>, <em>renderer=None</em><span class="sig-paren">)</span><a class="headerlink" href="#talenthub.views.OfferForm" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.forms.models.ModelForm</span></code></p>
+<dl class="class">
+<dt id="talenthub.views.OfferForm.Meta">
+<em class="property">class </em><code class="descname">Meta</code><a class="headerlink" href="#talenthub.views.OfferForm.Meta" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="talenthub.views.OfferForm.Meta.fields">
+<code class="descname">fields</code><em class="property"> = ('description', 'price', 'category', 'tag')</em><a class="headerlink" href="#talenthub.views.OfferForm.Meta.fields" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.views.OfferForm.Meta.model">
+<code class="descname">model</code><a class="headerlink" href="#talenthub.views.OfferForm.Meta.model" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>alias klasy <a class="reference internal" href="#talenthub.models.Offer" title="talenthub.models.Offer"><code class="xref py py-class docutils literal notranslate"><span class="pre">talenthub.models.Offer</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.views.OfferForm.base_fields">
+<code class="descname">base_fields</code><em class="property"> = {'category': &lt;django.forms.models.ModelChoiceField object&gt;, 'description': &lt;django.forms.fields.CharField object&gt;, 'price': &lt;django.forms.fields.IntegerField object&gt;, 'tag': &lt;django.forms.models.ModelMultipleChoiceField object&gt;}</em><a class="headerlink" href="#talenthub.views.OfferForm.base_fields" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.views.OfferForm.declared_fields">
+<code class="descname">declared_fields</code><em class="property"> = {}</em><a class="headerlink" href="#talenthub.views.OfferForm.declared_fields" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.views.OfferForm.media">
+<code class="descname">media</code><a class="headerlink" href="#talenthub.views.OfferForm.media" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="talenthub.views.ReviewForm">
+<em class="property">class </em><code class="descclassname">talenthub.views.</code><code class="descname">ReviewForm</code><span class="sig-paren">(</span><em>data=None</em>, <em>files=None</em>, <em>auto_id='id_%s'</em>, <em>prefix=None</em>, <em>initial=None</em>, <em>error_class=&lt;class 'django.forms.utils.ErrorList'&gt;</em>, <em>label_suffix=None</em>, <em>empty_permitted=False</em>, <em>instance=None</em>, <em>use_required_attribute=None</em>, <em>renderer=None</em><span class="sig-paren">)</span><a class="headerlink" href="#talenthub.views.ReviewForm" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.forms.models.ModelForm</span></code></p>
+<dl class="class">
+<dt id="talenthub.views.ReviewForm.Meta">
+<em class="property">class </em><code class="descname">Meta</code><a class="headerlink" href="#talenthub.views.ReviewForm.Meta" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>Klasy bazowe: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="talenthub.views.ReviewForm.Meta.fields">
+<code class="descname">fields</code><em class="property"> = ('rating', 'description')</em><a class="headerlink" href="#talenthub.views.ReviewForm.Meta.fields" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.views.ReviewForm.Meta.model">
+<code class="descname">model</code><a class="headerlink" href="#talenthub.views.ReviewForm.Meta.model" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd><p>alias klasy <a class="reference internal" href="#talenthub.models.Review" title="talenthub.models.Review"><code class="xref py py-class docutils literal notranslate"><span class="pre">talenthub.models.Review</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.views.ReviewForm.base_fields">
+<code class="descname">base_fields</code><em class="property"> = {'description': &lt;django.forms.fields.CharField object&gt;, 'rating': &lt;django.forms.fields.IntegerField object&gt;}</em><a class="headerlink" href="#talenthub.views.ReviewForm.base_fields" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.views.ReviewForm.declared_fields">
+<code class="descname">declared_fields</code><em class="property"> = {}</em><a class="headerlink" href="#talenthub.views.ReviewForm.declared_fields" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="talenthub.views.ReviewForm.media">
+<code class="descname">media</code><a class="headerlink" href="#talenthub.views.ReviewForm.media" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="talenthub.views.addArgument">
+<code class="descclassname">talenthub.views.</code><code class="descname">addArgument</code><span class="sig-paren">(</span><em>request</em>, <em>meeting_id</em><span class="sig-paren">)</span><a class="headerlink" href="#talenthub.views.addArgument" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="talenthub.views.addMeeting">
+<code class="descclassname">talenthub.views.</code><code class="descname">addMeeting</code><span class="sig-paren">(</span><em>request</em>, <em>offer_id</em><span class="sig-paren">)</span><a class="headerlink" href="#talenthub.views.addMeeting" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="talenthub.views.addOffer">
+<code class="descclassname">talenthub.views.</code><code class="descname">addOffer</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#talenthub.views.addOffer" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="talenthub.views.addOpinion">
+<code class="descclassname">talenthub.views.</code><code class="descname">addOpinion</code><span class="sig-paren">(</span><em>request</em>, <em>meeting_id</em><span class="sig-paren">)</span><a class="headerlink" href="#talenthub.views.addOpinion" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="talenthub.views.home">
+<code class="descclassname">talenthub.views.</code><code class="descname">home</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#talenthub.views.home" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="talenthub.views.login">
+<code class="descclassname">talenthub.views.</code><code class="descname">login</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#talenthub.views.login" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="talenthub.views.myArguments">
+<code class="descclassname">talenthub.views.</code><code class="descname">myArguments</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#talenthub.views.myArguments" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="talenthub.views.myMeetings">
+<code class="descclassname">talenthub.views.</code><code class="descname">myMeetings</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#talenthub.views.myMeetings" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="talenthub.views.myOffers">
+<code class="descclassname">talenthub.views.</code><code class="descname">myOffers</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#talenthub.views.myOffers" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="talenthub.views.myOpinions">
+<code class="descclassname">talenthub.views.</code><code class="descname">myOpinions</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#talenthub.views.myOpinions" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="talenthub.views.myProfile">
+<code class="descclassname">talenthub.views.</code><code class="descname">myProfile</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#talenthub.views.myProfile" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="talenthub.views.profile">
+<code class="descclassname">talenthub.views.</code><code class="descname">profile</code><span class="sig-paren">(</span><em>request</em>, <em>username</em><span class="sig-paren">)</span><a class="headerlink" href="#talenthub.views.profile" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="talenthub.views.search">
+<code class="descclassname">talenthub.views.</code><code class="descname">search</code><span class="sig-paren">(</span><em>request</em><span class="sig-paren">)</span><a class="headerlink" href="#talenthub.views.search" title="Stały odnośnik do tej definicji">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-talenthub.wsgi">
+<span id="talenthub-wsgi-module"></span><h2>talenthub.wsgi module<a class="headerlink" href="#module-talenthub.wsgi" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+<p>WSGI config for talenthub project.</p>
+<p>It exposes the WSGI callable as a module-level variable named <code class="docutils literal notranslate"><span class="pre">application</span></code>.</p>
+<p>For more information on this file, see
+<a class="reference external" href="https://docs.djangoproject.com/en/2.1/howto/deployment/wsgi/">https://docs.djangoproject.com/en/2.1/howto/deployment/wsgi/</a></p>
+</div>
+<div class="section" id="module-talenthub">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-talenthub" title="Stały odnośnik do tego nagłówka">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">TalentHub</a></h1>
+
+
+
+
+
+
+
+
+<h3>Nawigacja</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Szybkie wyszukiwanie</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Szukaj" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Boroszko, Łyżwa, Pacek, Rychlicki.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/talenthub.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
