@@ -1,0 +1,16 @@
+body
+{
+    background-color: #27294B;
+    color: white;   
+}
+
+#logo
+{
+    text-align: center;
+}
+
+a:hover, a:link, a:visited
+{
+    color: white;
+    text-decoration: none;
+}
