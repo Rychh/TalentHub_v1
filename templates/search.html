@@ -4,8 +4,8 @@
 {% extends 'base.html' %}
 {% block title %} Search {% endblock %}
 {% block content %}
-    <div class="card bg-dark">
-        <div>
+    <div class="card bg-dark mb-3">
+        <div class="card-header">
             <form class="form-inline md-form mr-auto mb-4" id="search" method="GET"  action="">
                 <select name="cat">
                     {% if request.GET.cat %}
@@ -33,39 +33,39 @@
                 
                 <button class="btn aqua-gradient btn-rounded btn-sm my-0" type="submit" value='Search'>Search</button>
             </form> 
-            <div class="card-body">
-                {% if offers %}
-                    {% for o in offers %}
-                        <div class="card mb-3">
-                            <div class="card-header bg-dark">
-                                <h4>{{ o.category }} - {{ o.price }} Talents by <a href="{% url 'profile' username=o.user_profile %}">{{ o.user_profile }}</a></h4>
+        </div>
+        <div class="card-body">
+            {% if offers %}
+                {% for o in offers %}
+                    <div class="card mb-3">
+                        <div class="card-header bg-dark">
+                            <h4>{{ o.category }} - {{ o.price }} Talents by <a href="{% url 'profile' username=o.user_profile %}">{{ o.user_profile }}</a></h4>
+                        </div>
+                        <div class="card-body bg-dark">
+                            <div>
+                                <p>{{ o.description }}</p>
+                                <p>
+                                    Tags: 
+                                    {% for tag in o.tag.all %}
+                                        {{ tag.name }}
+                                    {% empty %}
+                                        None!
+                                    {% endfor %}    
+                                </p>
                             </div>
-                            <div class="card-body bg-dark">
-                                <div>
-                                    <p>{{ o.description }}</p>
-                                    <p>
-                                        Tags: 
-                                        {% for tag in o.tag.all %}
-                                            {{ tag.name }}
-                                        {% empty %}
-                                            None!
-                                        {% endfor %}    
-                                    </p>
-                                </div>
-                                <div class="d-flex flex-row justify-content-end">
-                                    {% if user.is_authenticated and o.user_profile.user.id != user.id and user.profile.balance >= o.price %}
-                                        <a type="button" class="btn btn-primary" href="{% url 'addMeeting' offer_id=o.id %}">Request meeting</a>
-                                    {% endif %}
-                                </div>
+                            <div class="d-flex flex-row justify-content-end">
+                                {% if user.is_authenticated and o.user_profile.user.id != user.id and user.profile.balance >= o.price %}
+                                    <a type="button" class="btn btn-primary" href="{% url 'addMeeting' offer_id=o.id %}">Request meeting</a>
+                                {% endif %}
                             </div>
                         </div>
-                    {% endfor %}
-                {% else %}
-                    <div class="card mb-3">
-                        <p>No offers available.</p>
                     </div>
-                {% endif%}
-            </div>
+                {% endfor %}
+            {% else %}
+                <div class="card mb-3">
+                    <p>No offers available.</p>
+                </div>
+            {% endif%}
         </div>
     </div>
 {% endblock %}

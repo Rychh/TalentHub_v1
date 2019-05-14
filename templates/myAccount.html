@@ -3,15 +3,16 @@
 {% block title %} Profile {% endblock %}
 {% block content %}        
     <div class="row">
-         <div class="col">
-            <nav class="btn-group-vertical" role="group">
-                <span><a href="{% url 'myProfile' %}">My profile</a></span>  
-                <span><a href="{% url 'myOffers' %}">My offers</a></span>
-                <span><a href="{% url 'myArguments' %}">My arguments</a></span>    
-                <span><a href="{% url 'myOpinions' %}">My opinions</a></span>    
-                <span><a href="{% url 'myMeetings' %}">My meetings</a></span>    
-                <span>Settings</span>    
-            </nav>
+         <div class="col card bg-dark mb-3">
+            <div class="card-body">
+                <nav class="btn-group-vertical" role="group">
+                    <span><a href="{% url 'myProfile' %}">My profile</a></span>  
+                    <span><a href="{% url 'myOffers' %}">My offers</a></span>
+                    <span><a href="{% url 'myArguments' %}">My arguments</a></span>    
+                    <span><a href="{% url 'myOpinions' %}">My opinions</a></span>    
+                    <span><a href="{% url 'myMeetings' %}">My meetings</a></span>    
+                </nav>
+            </div>
         </div>
          <div class="col-10">
             <div class="card bg-dark mb-3">

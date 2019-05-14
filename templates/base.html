@@ -10,7 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{% static 'css/index.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
 
     <title>{% block title %}{% endblock %}</title>
 </head>
@@ -18,14 +18,13 @@
     <header class="container">
         <div class="row">
             <div class="col" id="logo">
-                <h1><a href="{% url 'home' %}">TalentHub</a></h1>
+                <h1><a href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}" height="100" width="293"></a></h1>
             </div>
         </div>
         <div class="container">
             <nav class="navbar" role="group">
                 <span><a href="{% url 'search' %}">Search</a></span>  
                 <span><a href="{% url 'myProfile' %}">My account</a></span>     
-                <span>About us</span>    
                 <span>
                     {% if user.is_authenticated %}
                         <a href="{% url 'logout' %}">Logout</a>
